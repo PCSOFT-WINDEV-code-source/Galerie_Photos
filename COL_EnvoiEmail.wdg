@@ -1,0 +1,232 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : COL_EnvoiEmail
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x1077f1b1010d3132
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     code : |1+
+      // Contact
+      gstConfig_SMTP est un ST_CONFIGURATION_SMTP
+     type : 720896
+  procedures :
+   -
+     name : EnvoiMessageCompte
+     internal_properties : CAAAAAgAAAAE3eca/BzgtaNQ6sWoq4eZ2ezG41P7EZDqUAQmRtex8BwmdcL/47drO7weLNUDnhvvyTH5gHPuzRrC8YKCuyPhqkn54Er9nGicMHkYlKIvj+zFK6d0Jsgojt8Zr+cT4xGnCjsVzR/wWqaNqzaCQ79v4FsB5Andu+jRdpGKha8xruayIKRYAQsOkTOX2bjXgU/KkUmA1Mld/A==
+     procedure_id : 1186682833789152334
+     type_code : 15
+     code : |1-
+      // Résumé : Envoi d'un message à un client
+      // Syntaxe :
+      //[ <Résultat> = ] EnvoiMessageCompte (<sAdresseEmail> est chaîne, <sSujet> est chaîne, <sMessageHTML> est chaîne, <tabPiècesJointes> est tableau)
+      //
+      // Paramètres :
+      //	sAdresseEmail (chaîne ANSI) : Identifiant du client destinataire
+      //	sSujet (chaîne ANSI) : Sujet du message
+      //	sMessageHTML (chaîne ANSI) : Message au format HTML
+      //	tabPiècesJointes (tableau) : Tableau contenant les pièces jointes
+      // Valeur de retour :
+      // 	booléen : VRAI si l'email a bien été envoyé, FAUX dans le cas contraire
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      // Traitement automatique des erreurs :   exécuter le bloc de code CAS ERREUR
+      //
+      
+      PROCEDURE EnvoiMessageCompte(sAdresseEmail est une chaine, sSujet est une chaine , sMessageHTML est une chaine, tabPiècesJointes est un tableau de chaines)
+      
+      // Variables locales
+      i 					est un entier
+      nBorneMax			est un entier
+      sDestinataire		est une chaine
+      sExpéditeur			est une chaine
+      
+      // Lecture de la configuration
+      gstConfig_SMTP    	 	= LireConfigurationSMTP()
+      sDestinataire			= LireAdresseEmailDestinataire()
+      sExpéditeur				= LireAdresseEmailExpéditeur()
+      
+      
+      // Réinitialisation des variables 
+      EmailRAZ()
+      
+      // Ouverture de la session SMTP
+      SI OuvreSessionSMTP(gstConfig_SMTP) = faux alors RENVOYER Faux
+      
+      // On remplit la structure
+      Email.NbDestinataire 	= 2
+      Email.Expéditeur 		= sExpéditeur
+      Email.Destinataire[1]	= sDestinataire
+      Email.Destinataire[2]	= sAdresseEmail
+      Email.Sujet 			= sSujet
+      Email.HTML				= sMessageHTML
+      
+      // Est-ce qu'il y a des pièces jointes ?
+      SI tabPiècesJointes <> Null ALORS
+      
+      	// Traitement des pièces jointes
+      	Email.NbAttache = Dimension(tabPiècesJointes)
+      	nBorneMax = Dimension(tabPiècesJointes)
+      	// On attache les pièces jointes
+      	POUR i = 1 _A_ nBorneMax
+      		Email.Attache[i] = tabPiècesJointes[i]		
+      	FIN
+      SINON
+      	// Pas de pièce jointe
+      	Email.NbAttache = 0	
+      FIN
+      
+      
+      // Envoi du message
+      SI EmailEnvoieMessage(gstConfig_SMTP.sLoginUtilisateur) = Faux alors
+      	AjouteErreur("Le message n'a pas été envoyé : ",ErreurInfo())
+      	RENVOYER faux
+      FIN
+      
+      // Fermeture de la session POP3
+      EmailFermeSession(gstConfig_SMTP.sLoginUtilisateur)	
+      
+      // Par défaut, l'envoi se déroule correctement
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Exception détectée",ExceptionInfo())
+      	
+      	// Fermeture de la session SMTP
+      	EmailFermeSession(gstConfig_SMTP.sLoginUtilisateur)	
+      
+      	// Message non envoyé
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : OuvreSessionSMTP
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1186683581113504146
+     type_code : 15
+     code : |1-
+      // Résumé : Ouvre une session SMTP
+      // Syntaxe :
+      //[ <Résultat> = ] OuvreSessionSMTP (<stConfiguration>)
+      //
+      // Paramètres :
+      //	stConfiguration : Configuration SMTP pour l'ouverture de la session
+      // Valeur de retour :
+      // 	booléen : Vrai si la session a été ouverte, Faux sinon
+      //// Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE OuvreSessionSMTP(stConfiguration est un ST_CONFIGURATION_SMTP)
+      
+      // Configuration du délai maximum
+      EmailChangeTimeOut(10)
+      
+      // Ouverture de la session SMTP
+      SI stConfiguration.bModeSécurisé = vrai alors
+      	SI EmailOuvreSessionSMTP(stConfiguration.sLoginUtilisateur,stConfiguration.sMDPUtilisateur,stConfiguration.sAdresseServeur,stConfiguration.nPort,emailOptionSécuriséTLS) = Faux ALORS
+      		AjouteErreur("Impossible d'ouvrir la session SMTP",ErreurInfo())
+      		RENVOYER Faux
+      	FIN
+      SINON
+      	SI EmailOuvreSessionSMTP(stConfiguration.sLoginUtilisateur,stConfiguration.sMDPUtilisateur,stConfiguration.sAdresseServeur,stConfiguration.nPort,emailOptionDéfaut) = Faux ALORS
+      		AjouteErreur("Impossible d'ouvrir la session SMTP",ErreurInfo())	
+      		RENVOYER Faux
+      	FIN	
+      FIN
+      
+      // Par défaut, la connexion est établie
+      RENVOYER vrai
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Exception détectée",ExceptionInfo())
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : EnvoieMessageContact
+     internal_properties : CAAAAAgAAAAR4lreH2J4Rd3V+mugsaqaPcWRc4a891NpZJfs2OxfqFa5a92hvxVeSKTrhFvcWX4DMfp144kV6W9tlQg1duY9FWSL3glxb2OhliT9RXcYO65IOySiRO54Oq6F+pqJEiUXcR2SIadA5NSWdTO7g+8Qq9JsOWaSH0agxF5hQxsyBfPip1UsqUsWWV2BZk2oeCg7zlRJgPiL6Oa4h73vEnr0BQ==
+     procedure_id : 1188916573301551992
+     type_code : 15
+     code : |1-
+      // Résumé : Envoi un message de prise de contact
+      // Syntaxe :
+      //[ <Résultat> = ] EnvoieMessageContact (<sEmailClient> est chaîne, <sMessageHTML> est chaîne)
+      //
+      // Paramètres :
+      //	sEmailClient (chaîne ANSI) : Email du client
+      //	sMessageHTML (chaîne ANSI) : Texte du message
+      // Valeur de retour :
+      // 	booléen : VRAI si le message a bien été envoyé, FAUX dans le cas contraire
+      //
+      //// Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE EnvoieMessageContact(sEmailClient est une chaîne, sMessageHTML est une chaîne)
+      
+      // Variables locales
+      sDestinataire		est une chaine
+      sExpéditeur			est une chaine
+      
+      // Lecture de la configuration
+      gstConfig_SMTP 	= COL_CONFIGSITE.LireConfigurationSMTP()
+      sDestinataire	= COL_ConfigSite.LireAdresseEmailDestinataire()
+      sExpéditeur		= COL_ConfigSite.LireAdresseEmailExpéditeur()
+      
+      // Réinitialisation des variables 
+      EmailRAZ()
+      
+      // Ouverture de la session SMTP
+      SI OuvreSessionSMTP(gstConfig_SMTP) = Faux ALORS RENVOYER Faux
+      
+      // On remplit la structure
+      Email.NbDestinataire 	= 2
+      Email.Expéditeur 		= sExpéditeur
+      Email.Destinataire[1]	= sDestinataire
+      Email.Destinataire[2]	= sEmailClient
+      Email.Sujet 			= <§@1077f1ad010b22630000§>
+      Email.HTML				= sMessageHTML
+      
+      // Envoi du message
+      Si EmailEnvoieMessage(gstConfig_SMTP.sLoginUtilisateur) = Faux alors 
+      	AjouteErreur("Le message n'a pas été envoyé",ErreurInfo())
+      	renvoyer faux
+      FIN
+      
+      // Fermeture de la session POP3
+      EmailFermeSession(gstConfig_SMTP.sLoginUtilisateur)	
+      
+      // Par défaut, l'envoi se déroule correctement
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      
+      // Fermeture de la session SMTP
+      EmailFermeSession(gstConfig_SMTP.sLoginUtilisateur)	
+      
+      // Message non envoyé
+      RENVOYER Faux
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_SansNom1
+resources :
+ string_res :
+  identifier : 0x1077f1ad010b2263
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      fr-FR : Formulaire contact depuis le site Internet
+     index : 0
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

@@ -1,0 +1,120 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : COL_GPU_CNX
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x12cfd9b401f7bef6
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     code : |1+
+      gsCode est une chaine unicode
+      gbActiveSSL est un booléen=faux		// Vrai pour activer le SSL
+      gbAutoriseInscription				est un booléen			// Vrai pour autoriser les utilisateurs à s'inscrire eux-mêmes
+      gProcRecupInfoDoubleAuth			est une procédure		// callback pour la récupération des infos de double authentification
+      gProcActiveDoubleAuthentification	est une procédure		// Callback pour l'activation de la double authentification
+      
+      // sauvegarde du contexte
+      SI EnModeAWP() ALORS
+      	ConfigureContexteAWP(ctxDisque)
+      	DéclareContexteAWP(gsCode,gbActiveSSL)
+      FIN
+     type : 720896
+  procedures :
+   -
+     name : ActiveSSL
+     procedure_id : 2131195414026775765
+     type_code : 15
+     code : |1+
+      PROCEDURE ActiveSSL(bActive)
+      gbActiveSSL = bActive
+      
+     type : 458752
+   -
+     name : bSSLEstActif
+     procedure_id : 2131195560055697907
+     type_code : 15
+     code : |1+
+      PROCEDURE bSSLEstActif()
+      renvoyer gbActiveSSL
+     type : 458752
+   -
+     name : AutoriseInscription
+     procedure_id : 2294345730727552561
+     type_code : 15
+     code : |1+
+      PROCEDURE AutoriseInscription(bAutorise est un booléen)
+      
+      gbAutoriseInscription = bAutorise
+     type : 458752
+   -
+     name : bActiveDoubleAuthentification
+     internal_properties : CAAAAAgAAABc4I6fQlFx+Eo2RjSQppcNNZK6SZS+8Mi14kqNsKa16cju6dvqzl0AnC0Ob/GkKMmCMq12+wNgCZS8ed+fXhKhJG2zijX2aG9YMxy4TxJRx6pbiDbS7Ds=
+     procedure_id : 2294345730727618378
+     type_code : 15
+     code : |1+
+      procedure bActiveDoubleAuthentification(sErreur est une chaine unicode) : booléen
+      
+      si gProcActiveDoubleAuthentification = Null ALORS
+      	sErreur = <§@1fad679d23d246620002§>
+      	RENVOYER Faux
+      FIN
+      
+      RENVOYER gProcActiveDoubleAuthentification(sErreur)
+      
+      CAS EXCEPTION:
+      sErreur = ExceptionInfo(errComplet)
+      RENVOYER Faux
+     type : 458752
+   -
+     name : bRecupInfoDoubleAuthentification
+     internal_properties : CAAAAAgAAABc4I6fQlFx+Eo2RjSQppcNNZK6SZS+8Mi14kqNsKa16cju6dvqzl0AnC0Ob/GkKMmCMq12+wNgCZS8ed+fXhKhJG2zijX2aG9YMxy4TxJRx6pbiDbS7Ds=
+     procedure_id : 2294345730727683992
+     type_code : 15
+     code : |1+
+      // Récupération des infos pour la double authentification
+      procedure bRecupInfoDoubleAuthentification(sCleTOTP est une chaine ANSI, sLienTOTP est une chaine unicode, sErreur est une chaine unicode) : booléen
+      
+      si gProcRecupInfoDoubleAuth = Null ALORS
+      	sErreur = <§@1fad679d23d246620003§>
+      	renvoyer Faux
+      FIN
+      
+      renvoyer gProcRecupInfoDoubleAuth(sCleTOTP, sLienTOTP, sErreur)
+      
+      
+      CAS EXCEPTION:
+      sErreur = ExceptionInfo(errComplet)
+      renvoyer faux
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_SansNom1
+resources :
+ string_res :
+  identifier : 0x1fad679d23d24662
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      fr-FR : Erreur d'initialisation
+      en-GB : Initialization error
+      es-ES : Error de inicialización
+     index : 2
+   -
+     text :
+      fr-FR : Erreur d'initialisation
+      en-GB : Initialization error
+      es-ES : Error de inicialización
+     index : 3
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

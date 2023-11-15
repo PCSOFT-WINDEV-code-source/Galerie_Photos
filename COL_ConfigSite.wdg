@@ -1,0 +1,1174 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : COL_ConfigSite
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x106dafe7003ea9f1
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     code : |1+
+      
+      ST_CONFIGURATION_SMTP est une structure
+      	sAdresseServeur		est une chaine
+      	sLoginUtilisateur	est une chaine
+      	sMDPUtilisateur		est une chaine
+      	nPort				est un entier
+      	bModeSécurisé		est un booléen	
+      FIN
+      
+      ST_OPTIONS_FILIGRANE est une structure
+      	sTexteFiligrane 	est une chaine
+      	sPolice 			est une chaine
+      	nTaille 			est un entier
+      	nCouleur 			est un entier
+      	nAttributs 			est un entier
+      	nAngle 				est un entier
+      	nOpacité			est un entier
+      	nPosX 				est un entier
+      	nPosY 				est un entier
+      FIN
+      
+      
+      // Gestion des paramètres du site
+      CONSTANT
+      	
+      	// Type des paramètres du site
+      	CN_ENTIER = 1
+      	CN_CHAINE = 2
+      	CN_REEL = 4
+      	CN_BINAIRE = 5
+      	
+      	// Les constantes des paramètres modifiables par l'administration du site
+      	csAdmin_NomSite					= "NOM_SITE"						// Le nom du site (chaîne)
+      	csAdmin_LogoSite				= "LOGO_SITE"					// L'image de l'entreprise, logo (binaire)	
+      	csAdmin_Droits					= "DROITS"					 	// Texte du bas du site	
+      	csAdmin_PhotoAccueil			= "PHOTO_ACCUEIL"				// Photo de la page d'accueil 	
+      	csAdmin_TexteFormulaireContact	= "TEXTE_FORMULAIRE_CONTACT"	// Texte du formulaire de contact
+      	csAdmin_ImageFiligrane			= "FILIGRANE_IMAGE"				// Image du filigrane
+      	csAdmin_OptionsFiligrane		= "OPTIONS_FILIGRANE"			// Texte du filigrane
+      	csAdmin_IntegrationFiligrane	= "INTEGRER_FILIGRANE"			// Intégrer le filigrane
+      	csAdmin_Login_Administrateur	= "LOGIN_ADMIN"					// Login administrateur
+      	csAdmin_MDP_Administrateur		= "MDP_ADMIN"					// MDP Administrateur
+      	csAdmin_Login_Defaut			= "admin"							// Login par défaut
+      	csAdmin_CONFIGSMTP				= "CONFIG_SMTP"					// Configuration du serveur SMTP pour l'envoi des emails
+      	csAdmin_EmailExpéditeur			= "EMAIL_EXPEDITEUR"
+      	csAdmin_EmailDestinataire		= "EMAIL_DESTINATAIRE"
+      	csAdmin_PageAccueil				= "PAGEACCUEIL"
+      		
+      	CN_LogoDéfaut					= "Config_Site/logo.png"				//Logo par défaut pour le site
+      	CN_PhotoAccueilDéfaut			= "Config_Site/Photo_Accueil.jpg"		//Photo par défaut pour l'accueil du site
+      	CN_Filigrane					= "Filigrane.png"					//Filigrane à intégrer aux images
+      	
+      fin
+     type : 720896
+  procedures :
+   -
+     name : LireLogoSite
+     procedure_id : 1183796620047678595
+     type_code : 15
+     code : |1+
+      // Résumé : Renvoie le logo du site
+      // Syntaxe :
+      //[ <Résultat> = ] LireLogoSite ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : Buffer vide si aucune image de logo à appliquer
+      
+      PROCEDURE LireLogoSite()
+      
+      // Variables locales
+      sFichierLogo est une chaine
+      
+      // Lecture du logo
+      sFichierLogo = RécupèreParamètre(csAdmin_LogoSite,CN_LogoDéfaut)
+      SI sFichierLogo = "" alors RENVOYER ""
+      
+      // On renvoie le logo 
+      RENVOYER sFichierLogo
+     type : 458752
+   -
+     name : ModifierLogoSite
+     internal_properties : CAAAAAgAAAB0lS7Re69eSz+7Ud5vC2nIzKEXTXCUuQsR+NWRKmqegC2/PVpPjM1JqwAzH7zZdYKgA18kAdVqoP7ZJbeHboF3KWGyipYK4l58glKJKAsEiU1l8pQRenf9paasQYSjRWip+R8ldAwYOGje0iZnQA==
+     procedure_id : 1183796620047744303
+     type_code : 15
+     code : |1-
+      // Résumé : Modification du logo du site
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierLogoSite (<sCheminFichier> est chaîne)
+      //
+      // Paramètres :
+      //	sCheminFichier (chaîne ANSI) : Chemin du fichier du nouveau logo
+      // Valeur de retour :
+      // 	booléen : Vrai si la modification a été effectuée, Faux sinon
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE ModifierLogoSite(sCheminFichier est une chaine)
+      
+      // Variables locales
+      ImageLogo est une image
+      sCheminLogo	est une chaine
+      sCheminFichierGeneration est une chaine
+      
+      // On note la modification de configuration
+      NotifierModificationConfiguration("Modification du logo du site")
+      
+      // Vérification de l'existence du fichier
+      Si fFichierExiste( sCheminFichier) = Faux alors
+      	AjouteErreur("Le fichier pour le nouveau logo n'est pas accessible")
+      	RENVOYER Faux
+      FIN
+      
+      // On construit le nom de fichier de l'image de génération
+      sCheminFichierGeneration = CompleteRep(sRenvoyerRepGeneration())+fExtraitChemin(sCheminFichier,fFichier)+".png"
+      
+      // Est-ce que l'image n'est pas trop grande ?
+      ImageLogo = sCheminFichier
+      SI ImageLogo..Hauteur > 100 _ou_ ImageLogo..Largeur > 300  alors
+      	ImageAlpha est une image	
+      	// On crée une image destination avec couche Alpha pour gérer la transparence
+      	SI pas fExtraitChemin(sCheminFichier,fExtension) ~= ".png" alors
+      	
+      		ImageAlpha..CouleurRemplissage = iTransparent
+      		ImageAlpha..Largeur = ImageLogo..Largeur
+      		ImageAlpha..Hauteur = ImageLogo..Hauteur
+      	
+      		// On copie l'image lue dans l'image avec couche Alpha
+      		dFusionne(ImageAlpha,ImageLogo)
+      	SINON
+      		ImageAlpha = ImageLogo
+      	FIN
+      	
+      	// Redimensionnement de l'image
+      	SI dRedimensionne(ImageAlpha,300,100,drHomothétiqueCentré + drHauteQualité) = Faux alors
+      		AjouteErreur("L'image fournie pour le logo n'a pas pu être redimensionnée",ErreurInfo())
+      		// Ceci n'est pas une erreur fatale
+      	FIN
+      	
+      	// Sauvegarde de l'image : on veut forcément un PNG
+      	SI dSauveImagePNG(ImageAlpha,sCheminFichierGeneration) = Faux alors
+      		AjouteErreur("Une erreur est survenue pendant la sauvegarde du logo",ErreurInfo())
+      		RENVOYER Faux
+      	FIN
+      sinon
+      	SI fCopieFichier(sCheminFichier,sCheminFichierGeneration) = Faux alors
+      		AjouteErreur("Une erreur est survenue pendant la copie du logo")
+      		RENVOYER Faux
+      	FIN
+      FIN
+      
+      
+      // On copie le logo dans le répertoire _WEB autorisé
+      sCheminLogo = ComplèteRep(sRenvoyerRepWebUpload())+"logo.png"
+      SI fCopieFichierRépertoireWeb(sCheminFichierGeneration,sCheminLogo) = Faux ALORS
+      	AjouteErreur("Une erreur est survenue pendant le déploiement du logo",ErreurInfo())
+      	RENVOYER Faux
+      FIN
+      
+      
+      // On supprime le fichier de génération
+      SI fFichierExiste(sCheminFichierGeneration) = Vrai ALORS
+      	SI fSupprime(sCheminFichierGeneration) = Faux ALORS
+      		AjouteErreur("Impossible de supprimer le fichier temporaire de génération",ErreurInfo())
+      		// Erreur non fatale
+      	FIN
+      FIN
+      
+      // On construit le chemin de l'image par rapport à fRepWeb
+      sCheminLogo = Remplace(sCheminLogo,fRepWeb(),"")
+      
+      sCheminLogo = Remplace(sCheminLogo,"\","/")
+      SI Gauche(sCheminLogo,1)~="/" ALORS sCheminLogo = Droite(sCheminLogo,Taille(sCheminLogo)-1)
+      
+      // On sauvegarde le logo en base
+      SI MémoriseParamètre(csAdmin_LogoSite,sCheminLogo,CN_CHAINE) = Faux alors
+      	RENVOYER Faux
+      FIN
+      
+      // On supprime le fichier temporaire
+      SI fSupprime(sCheminFichier) = Faux alors
+      	AjouteErreur("Le fichier temporaire du logo n'a pas pu être supprimé",ErreurInfo())
+      	// Ceci n'est pas une erreur fatale
+      FIN
+      
+      // La modification a été effectuée
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Une exception a été détectée",ExceptionInfo())
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : RécupèreParamètre
+     procedure_id : 1183797766804344711
+     type_code : 15
+     code : |1+
+      // Résumé : Récupération d'un paramètre de configuration du site
+      // Syntaxe :
+      //[ <Résultat> = ] RécupèreParamètre (<sNomParamètre> [, <sValeurParDéfaut>])
+      //
+      // Paramètres :
+      //	sNomParamètre : Nom du paramètre (voir les constantes..)
+      //	sValeurParDéfaut (valeur par défaut="") : Valeur par défaut à renvoyer
+      // Valeur de retour :
+      // 	chaîne ANSI : Valeur du paramètre
+      //
+      
+      PROCEDURE RécupèreParamètre(sNomParamètre,sValeurParDéfaut = "") : chaine
+      
+      // Recherche du paramètre
+      HLitRecherchePremier(CONFIGURATION_SITE,Nom_Paramètre,sNomParamètre)
+      SI HTrouve(CONFIGURATION_SITE) ALORS
+      	
+      	// Selon le type de paramètre	
+      	SELON CONFIGURATION_SITE.TypeParamètre
+      		// Entier
+      		CAS CN_ENTIER
+      			// Renvoie la valeur entière de ce paramètre
+      			RENVOYER CONFIGURATION_SITE.ValeurEntier
+      		
+      		// Binaire
+      		CAS CN_BINAIRE
+      			// Renvoie la valeur binaire de ce paramètre
+      			RENVOYER CONFIGURATION_SITE.ValeurBinaire
+      			
+      		// Chaîne
+      		CAS CN_CHAINE
+      			// Renvoie la valeur chaîne de ce paramètre
+      			RENVOYER CONFIGURATION_SITE.ValeurChaîne
+      					
+      		// Réel
+      		CAS CN_REEL		
+      			// Renvoie la valeur réelle de ce paramètre
+      			RENVOYER CONFIGURATION_SITE.ValeurRéelle
+      		
+      	FIN
+      
+      FIN
+      
+      
+      // Par défaut, si rien n'est trouvé ou que le type de valeur n'est pas correct, on renvoie une chaîne vide
+      // Si la valeur attendue est une valeur chaîne ou binaire, aucun pb
+      // Si la valeur attendue est une valeur entière ou réelle, elle sera à 0
+      RENVOYER sValeurParDéfaut
+     type : 458752
+   -
+     name : MémoriseParamètre
+     internal_properties : CAAAAAgAAADiA7yqzYOu44fj73SxK4UU/BFjiY7ckWMJwMObKHb2IBFbrSJtpFk9H6RVxTaJlWrYI8M4h1VuYz+a+OToB2zcisrLAQPHh70x1y32SRxrclJi958ac2DkXu9nltV0aA3KmriQHYWxe9kvOLjx1g==
+     procedure_id : 1183798612912968027
+     type_code : 15
+     code : |1-
+      // Résumé : Sauvegarde d'un paramètre de configuration du site
+      // Syntaxe :
+      //[ <Résultat> = ] MémoriseParamètre (<sNomParamètre>, <sValeur>, <nType>)
+      //
+      // Paramètres :
+      //	sNomParamètre : Nom du paramètre
+      //	sValeur : Valeur à affecter à ce paramètre
+      //	nType : Type du paramètre
+      // Valeur de retour :
+      // 	booléen : VRAI si le paramètre a été sauvegardé, FAUX dans le cas contraire
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      pROCEDURE MémoriseParamètre(sNomParamètre, sValeur, nType)
+      
+      
+      nValeurEntière est un entier
+      moValeurRéelle est un monétaire
+      
+      
+      // Est-ce que l'on doit caster la valeur ?
+      SELON nType
+      
+      	CAS CN_BINAIRE, CN_CHAINE
+      		// On ne fait rien
+      		
+      	CAS CN_REEL
+      		// On caste la valeur dans un monétaire
+      		moValeurRéelle = sValeur
+      		
+      	CAS CN_ENTIER
+      		
+      		// On caste la valeur dans un entier
+      		nValeurEntière = sValeur
+      		
+      	AUTRE CAS
+      		// Le type est inconnu, on renvoie faux		
+      		AjouteErreur("Type de paramètre inconnu")
+      		RENVOYER Faux
+      FIN
+      
+      
+      // Recherche du paramètre dans le fichier de configuration
+      HLitRecherchePremier(CONFIGURATION_SITE,Nom_Paramètre,sNomParamètre)
+      
+      // Mise à jour des paramètres
+      HRAZ()
+      CONFIGURATION_SITE.Nom_Paramètre = sNomParamètre
+      CONFIGURATION_SITE.TypeParamètre = nType
+      
+      SELON nType
+      	CAS CN_BINAIRE
+      		// On attache le mémo
+      		HAttacheMémo(CONFIGURATION_SITE,ValeurBinaire,sValeur)
+      	
+      	CAS CN_CHAINE
+      	
+      		CONFIGURATION_SITE.ValeurChaîne = sValeur
+      	
+      	CAS CN_REEL
+      	
+      		CONFIGURATION_SITE.ValeurRéelle = moValeurRéelle
+      		
+      	CAS CN_ENTIER
+      		
+      		CONFIGURATION_SITE.ValeurEntier = nValeurEntière
+      		
+      	AUTRE CAS
+      		
+      FIN
+      
+      
+      // Est-ce que l'on doit le modifier ou l'ajouter ?
+      SI HTrouve(CONFIGURATION_SITE) ALORS
+      	// Paramètre trouvée : il faut le modifier
+      	SI HModifie(CONFIGURATION_SITE) = Faux alors
+      		AjouteErreur("Impossible de modifier le paramètre")
+      		RENVOYER Faux
+      	SINON
+      		RENVOYER Vrai
+      	FIN
+      
+      SINON
+      	// Paramètre non trouvé : il faut l'ajouter
+      	SI HAjoute(CONFIGURATION_SITE) = Faux alors
+      		AjouteErreur("Impossible d'ajouter le paramètre")
+      		RENVOYER Faux		
+      	SINON
+      		RENVOYER Vrai
+      	FIN
+      
+      FIN
+      
+      CAS EXCEPTION:
+      	dbgAssertion(Faux,"Exception non gérée pendant l'enregistrement du paramètre")
+      	AjouteErreur("Exception détectée",ExceptionInfo())
+      	renvoyer Faux
+     type : 458752
+   -
+     name : LogoSiteEstPersonnalisé
+     procedure_id : 1183802229278305124
+     type_code : 15
+     code : |1+
+      // Résumé : Indique si le logo du site est personnalisé
+      // Syntaxe :
+      //[ <Résultat> = ] LogoSiteEstPersonnalisé ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : Vrai si le logo est personnalisé, Faux sinon
+      
+      PROCEDURE LogoSiteEstPersonnalisé()
+      
+      // Variables locales
+      sLogo est une chaine
+      
+      // Récupération du bandeau
+      sLogo = RécupèreParamètre(csAdmin_LogoSite)
+      
+      // Si le chemin est vide, c'est que le logo n'est pas personnalisé
+      Si sLogo = "" alors
+      	// Le bandeau est celui par défaut
+      	RENVOYER Faux
+      SINON
+      	// Le bandeau est personnalisé
+      	RENVOYER Vrai
+      FIN
+     type : 458752
+   -
+     name : LireDroits
+     procedure_id : 1183802925063038058
+     type_code : 15
+     code : |1-
+      // Résumé : Renvoie le texte indiqué en bas de page
+      // Syntaxe :
+      //[ <Résultat> = ] LireDroits ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : Texte indiqué en bas de page : les droits souvent
+      
+      PROCEDURE LireDroits()
+      
+      RENVOYER RécupèreParamètre(csAdmin_Droits,"")
+     type : 458752
+   -
+     name : ModifierDroits
+     procedure_id : 1183802929358070984
+     type_code : 15
+     code : |1-
+      // Résumé : Modifie le texte indiquée dans les bas de page
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierDroits (<sTexte> est chaîne)
+      //
+      // Paramètres :
+      //	sTexte (chaîne ANSI) : Nouveau texte
+      // Valeur de retour :
+      // 	booléen : Vrai si la modification a été effectuée, Faux sinon
+      
+      PROCEDURE ModifierDroits(sTexte est une chaine)
+      
+      
+      RENVOYER MémoriseParamètre(csAdmin_Droits,sTexte,CN_CHAINE)
+     type : 458752
+   -
+     name : LirePhotoAccueil
+     procedure_id : 1183803552128932736
+     type_code : 15
+     code : |1+
+      // Résumé : Renvoie le logo du site
+      // Syntaxe :
+      //[ <Résultat> = ] LirePhotoAccueil ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : Buffer vide si aucune image de bandeau à appliquer
+      
+      PROCEDURE LirePhotoAccueil()
+      
+      // Variables locales
+      sFichierPhotoAccueil est une chaine
+      
+      // Lecture du logo
+      sFichierPhotoAccueil = RécupèreParamètre(csAdmin_PhotoAccueil, CN_PhotoAccueilDéfaut)
+      SI sFichierPhotoAccueil = "" alors RENVOYER ""
+      
+      // On renvoie le logo 
+      RENVOYER sFichierPhotoAccueil
+     type : 458752
+   -
+     name : ModifierPhotoAccueil
+     internal_properties : CAAAAAgAAADebABpFDPValyY1BmMIrllzdgiQ038FvZ6IujhUhorVXJYHclctgFAaPPYSMYJo5w/CdTRLpTN2tV/fGRg/V7LeFu0l8IJDVjpgnnugQBLNWIfxAoqbrk=
+     procedure_id : 1183803552128998382
+     type_code : 15
+     code : |1-
+      // Résumé : Modification de la photo d'accueil du site
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierPhotoAccueil (<sCheminFichier> est chaîne)
+      //
+      // Paramètres :
+      //	sCheminFichier (chaîne ANSI) : Chemin du fichier du nouveau logo
+      // Valeur de retour :
+      // 	booléen : Vrai si la modification a été effectuée, Faux sinon
+      //
+      
+      //// Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE ModifierPhotoAccueil(sCheminFichier est une chaine)
+      
+      // Variables locales
+      ImagePhoto 		est une image
+      sCheminPhoto	est une chaine
+      sCheminFichierGeneration est une chaine
+      
+      // On note la modification de configuration
+      NotifierModificationConfiguration("Modification de la photo d'accueil du site")
+      
+      // Vérification de l'existence du fichier
+      Si fFichierExiste(sCheminFichier) = Faux alors
+      	AjouteErreur("Le fichier pour la nouvelle photo n'est pas accessible")
+      	RENVOYER Faux
+      FIN
+      
+      // On construit le nom de fichier de l'image de génération
+      sCheminFichierGeneration = CompleteRep(sRenvoyerRepGeneration()) + fExtraitChemin(sCheminFichier,fFichier+fExtension)
+      
+      // Est-ce que l'image n'est pas trop grande ?
+      ImagePhoto = sCheminFichier
+      SI ImagePhoto..Hauteur > 600 _OU_ ImagePhoto..Largeur > 800  ALORS
+      	
+      	// Redimensionnement de l'image
+      	SI dRedimensionne(ImagePhoto,800,600,drHomothétiqueCentré + drHauteQualité) = Faux ALORS
+      		AjouteErreur("L'image fournie pour la photo d'accueil n'a pas pu être redimensionnée",ErreurInfo())
+      		// Ceci n'est pas une erreur fatale
+      	FIN
+      	
+      	sExtension est une chaine = Majuscule(fExtraitChemin(sCheminFichier,fExtension))
+      	selon sExtension
+      		cas ".PNG"
+      			// Sauvegarde de l'image 
+      			SI dSauveImagePNG(ImagePhoto,sCheminFichierGeneration) = Faux ALORS
+      				AjouteErreur("Une erreur est survenue pendant la sauvegarde de la photo d'accueil",ErreurInfo())
+      				RENVOYER Faux
+      			FIN
+      			
+      		cas ".JPEG", ".JPG" :
+      			// Sauvegarde de l'image 
+      			SI dSauveImageJPEG(ImagePhoto,sCheminFichierGeneration) = Faux ALORS
+      				AjouteErreur("Une erreur est survenue pendant la sauvegarde de la photo d'accueil",ErreurInfo())
+      				RENVOYER Faux
+      			FIN
+      			
+      	FIN
+      	
+      SINON
+      	SI fCopieFichier(sCheminFichier,sCheminFichierGeneration) = Faux ALORS
+      		AjouteErreur("Une erreur est survenue pendant la copie de la photo d'accueil")
+      		RENVOYER Faux
+      	FIN
+      FIN
+      
+      // On copie la photo dans le répertoire _WEB autorisé
+      sCheminPhoto = ComplèteRep(sRenvoyerRepWebUpload())+"photo_accueil" +  fExtraitChemin(sCheminFichier,fExtension)
+      SI fCopieFichierRépertoireWeb(sCheminFichierGeneration,sCheminPhoto) = Faux ALORS
+      	AjouteErreur("Une erreur est survenue pendant le déploiement de la photo d'accueil",ErreurInfo())
+      	RENVOYER Faux
+      FIN
+      
+      
+      // On supprime le fichier de génération
+      SI fFichierExiste(sCheminFichierGeneration) = Vrai ALORS
+      	SI fSupprime(sCheminFichierGeneration) = Faux ALORS
+      		AjouteErreur("Impossible de supprimer le fichier temporaire de génération",ErreurInfo())
+      		// Erreur non fatale
+      	FIN
+      FIN
+      
+      
+      // On construit le chemin de l'image par rapport à fRepWeb
+      sCheminPhoto = Remplace(sCheminPhoto,fRepWeb(),"")
+      
+      sCheminPhoto = Remplace(sCheminPhoto,"\","/")
+      SI Gauche(sCheminPhoto,1)~="/" ALORS sCheminPhoto = Droite(sCheminPhoto,Taille(sCheminPhoto)-1)
+      
+      // On sauvegarde la photo en base
+      SI MémoriseParamètre(csAdmin_PhotoAccueil,sCheminPhoto,CN_CHAINE) = Faux alors
+      	RENVOYER Faux
+      FIN
+      
+      // On supprime le fichier temporaire
+      SI fSupprime(sCheminFichier) = Faux alors
+      	AjouteErreur("Le fichier temporaire de la photo n'a pas pu être supprimé",ErreurInfo())
+      	// Ceci n'est pas une erreur fatale
+      FIN
+      
+      // La modification a été effectuée
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      AjouteErreur("Une exception a été détectée",ExceptionInfo())
+      RENVOYER Faux
+     type : 458752
+   -
+     name : LireTexteFormulaireContact
+     procedure_id : 1183813649597234192
+     type_code : 15
+     code : |1-
+      // Résumé : Renvoie le texte indiqué en cas de prise de contact
+      // Syntaxe :
+      //[ <Résultat> = ] LireTexteFormulaireContact ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : Texte indiqué
+      
+      PROCEDURE LireTexteFormulaireContact()
+      
+      RENVOYER RécupèreParamètre(csAdmin_TexteFormulaireContact,"")
+     type : 458752
+   -
+     name : ModifierTexteFormulaireContact
+     procedure_id : 1183813649597299915
+     type_code : 15
+     code : |1-
+      // Résumé : Modifie le texte indiqué lors d'une prise de contact
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierTexteFormulaireContact (<sTexteContact> est chaîne)
+      //
+      // Paramètres :
+      //	sTexteContact (chaîne ANSI) : Nouveau texte
+      // Valeur de retour :
+      // 	booléen : Vrai si la modification a été effectuée, Faux sinon
+      //
+      
+      PROCEDURE ModifierTexteFormulaireContact(sTexteContact est une chaine)
+      
+      // On note la modification de configuration
+      NotifierModificationConfiguration("Modification du texte de prise de contact", LireTexteFormulaireContact(),sTexteContact)
+      
+      RENVOYER MémoriseParamètre(csAdmin_TexteFormulaireContact,sTexteContact,CN_CHAINE)
+     type : 458752
+   -
+     name : LireFiligraneImage
+     procedure_id : 1185259640544340335
+     type_code : 15
+     code : |1+
+      // Résumé : Renvoie l'image du filigrane
+      // Syntaxe :
+      //[ <Résultat> = ] LireFiligraneImage ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : Buffer vide si aucune image de filigrane à appliquer
+      
+      PROCEDURE LireFiligraneImage()
+      
+      // Variables locales
+      sFichierFiligrane est une chaine
+      
+      // Lecture du logo
+      sFichierFiligrane = RécupèreParamètre(csAdmin_ImageFiligrane,"")
+      SI sFichierFiligrane = "" alors RENVOYER ""
+      
+      // On renvoie le logo 
+      RENVOYER sFichierFiligrane
+     type : 458752
+   -
+     name : LireNomSite
+     procedure_id : 1186685311991494755
+     type_code : 15
+     code : |1-
+      // Résumé : Renvoie le texte indiquée en nom de site
+      // Syntaxe :
+      //[ <Résultat> = ] LireNomSite ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : Nom du site
+      //
+      
+      PROCEDURE LireNomSite()
+      
+      
+      RENVOYER RécupèreParamètre(csAdmin_NomSite,"")
+     type : 458752
+   -
+     name : ModifierNomSite
+     procedure_id : 1186685458020613934
+     type_code : 15
+     code : |1-
+      // Résumé : Modifie le nom indiqué pour le site
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierNomSite (<sNomSite> est chaîne)
+      //
+      // Paramètres :
+      //	sNomSite (chaîne ANSI) : Nouveau nom indiqué
+      // Valeur de retour :
+      // 	booléen : Vrai si la modification a été effectuée, Faux sinon
+      
+      PROCEDURE ModifierNomSite(sNomSite est une chaine)
+      
+      // On note la modification de configuration
+      NotifierModificationConfiguration("Modification du nom du site", LireNomSite(), sNomSite)
+      
+      RENVOYER MémoriseParamètre(csAdmin_NomSite,sNomSite,CN_CHAINE)
+     type : 458752
+   -
+     name : ModifierConfigurationSMTP
+     internal_properties : CAAAAAgAAADebABpFDPValyY1BmMIrllzdgiQ038FvZ6IujhUhorVXJYHclctgFAaPPYSMYJo5w/CdTRLpTN2tV/fGRg/V7LeFu0l8IJDVjpgnnugQBLNWIfxAoqbrk=
+     procedure_id : 1186686286949363246
+     type_code : 15
+     code : |1-
+      // Résumé : Modifie la configuration du serveur SMTP 
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierConfigurationSMTP (<stNouvelleConfiguration> est ST_CONFIGURATION_SMTP)
+      //
+      // Paramètres :
+      //	stNouvelleConfiguration (ST_CONFIGURATION_SMTP) : Nouvelle configuration du serveur SMTP
+      // Valeur de retour :
+      // 	booléen : Vrai si la modification a été effectuée, Faux sinon
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //// Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE ModifierConfigurationSMTP(stNouvelleConfiguration est un ST_CONFIGURATION_SMTP)
+      
+      // Variables locales
+      sConfigurationSerialisée	est une chaine
+      
+      // On note la modification de configuration
+      NotifierModificationConfiguration("Modification de la configuration du serveur SMTP")
+      
+      // Sérialisation
+      QUAND EXCEPTION DANS
+      	sérialise(stNouvelleConfiguration,sConfigurationSerialisée,psdXML)
+      FAIRE
+      	AjouteErreur("Un problème de format a été détecté",ErreurInfo())
+      	RENVOYER Faux
+      FIN
+      
+      // Sauvegarde en base
+      SI MémoriseParamètre(csAdmin_CONFIGSMTP, sConfigurationSerialisée, CN_CHAINE) = Faux alors	
+      	RENVOYER Faux
+      FIN
+      
+      // La modification a été effectuée
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Exception détectée",ExceptionInfo(errComplet))
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : LireConfigurationSMTP
+     internal_properties : CAAAAAgAAAAcLRYdm59qa6/rsb6vCyn4LNFnnXAkaRuxeOXB2npuIJ0fXVo/jO0pO3Dzv9x5VTLgU+/0YWV6aAaB3c/PRulvMak6og7y6iYkyqph0GOsoRWt2kzJgr8FzY6EeeybbYBR4addzNTAzPyiqg4PqA==
+     procedure_id : 1186686359963889756
+     type_code : 15
+     code : |1+
+      // Résumé : Renvoie la configuration du serveur SMTP 
+      // Syntaxe :
+      //[ <Résultat> = ] LireConfigurationSMTP ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	ST_CONFIGURATION_SMTP : // 	
+      //// Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //// Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE LireConfigurationSMTP()
+      
+      // Variables locales
+      stConfiguration 			est un ST_CONFIGURATION_SMTP
+      sConfigurationSerialisée	est une chaine
+      
+      // Configuration par défaut
+      stConfiguration.nPort = 25
+      stConfiguration.sAdresseServeur = "localhost"
+      
+      // Récupération du contenu stocké
+      sConfigurationSerialisée = RécupèreParamètre(csAdmin_CONFIGSMTP, "")
+      
+      // Dé-sérialisation
+      Si sConfigurationSerialisée <> "" alors
+      	Quand exception dans
+      		Désérialise(stConfiguration,sConfigurationSerialisée,psdXML)
+      	FAIRE
+      		AjouteErreur("Un problème de format a été détecté",ErreurInfo())
+      	FIN
+      sinon
+      	
+      fin
+      
+      // On renvoie la configuration
+      RENVOYER stConfiguration
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Exception détectée",ExceptionInfo(errComplet))
+      	RENVOYER stConfiguration
+     type : 458752
+   -
+     name : LireAdresseEmailDestinataire
+     procedure_id : 1186686587597210342
+     type_code : 15
+     code : |1-
+      // Résumé : Récupère l'adresse email destinataire
+      // Syntaxe :
+      //[ <Résultat> = ] LireAdresseEmailDestinataire ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : 
+      
+      PROCEDURE LireAdresseEmailDestinataire()
+      
+      
+      RENVOYER RécupèreParamètre(csAdmin_EmailDestinataire,"")
+     type : 458752
+   -
+     name : LireAdresseEmailExpéditeur
+     procedure_id : 1186686591892243283
+     type_code : 15
+     code : |1-
+      // Résumé : Récupère l'adresse email de l'expéditeur
+      // Syntaxe :
+      //[ <Résultat> = ] LireAdresseEmailExpéditeur ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : 
+      
+      PROCEDURE LireAdresseEmailExpéditeur()
+      
+      RENVOYER RécupèreParamètre(csAdmin_EmailExpéditeur,"")
+     type : 458752
+   -
+     name : LirePageAccueilSite
+     procedure_id : 1188136993757329142
+     type_code : 15
+     code : |1-
+      // Résumé : Renvoie la page d'accueil du site
+      // Syntaxe :
+      //[ <Résultat> = ] LirePageAccueilSite ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : Nom de la page d'accueil du site
+      
+      PROCEDURE LirePageAccueilSite()
+      
+      // On renvoie la page d'accueil
+      RENVOYER RécupèreParamètre(csAdmin_PageAccueil, "PAGE_Accueil")
+     type : 458752
+   -
+     name : sErreurInfoBackOffice
+     procedure_id : 1188144153468625947
+     type_code : 15
+     code : |1-
+      // Résumé : Renvoie l'erreur s'il y en a eu une (chaîne vide dans ce cas)
+      // Syntaxe :
+      //[ <Résultat> = ] sErreurInfoBackOffice ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	chaîne ANSI : Texte de l'erreur
+      
+      PROCEDURE sErreurInfoBackOffice()
+      
+      RENVOYER sRenvoyerErreur()
+     type : 458752
+   -
+     name : RestaurerLogoSiteDefaut
+     internal_properties : CAAAAAgAAADebABpFDPValyY1BmMIrllzdgiQ038FvZ6IujhUhorVXJYHclctgFAaPPYSMYJo5w/CdTRLpTN2tV/fGRg/V7LeFu0l8IJDVjpgnnugQBLNWIfxAoqbrk=
+     procedure_id : 1188147220076710624
+     type_code : 15
+     code : |1-
+      // Résumé : Restaure le logo par défaut du site
+      // Syntaxe :
+      //[ <Résultat> = ] RestaurerLogoSiteDefaut ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : Vrai si la restauration a été effectuée, Faux sinon
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //// Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE RestaurerLogoSiteDefaut()
+      
+      
+      // On note la modification de configuration
+      NotifierModificationConfiguration("Restauration du logo par défaut du site")
+      
+      // On sauvegarde le logo en base
+      SI MémoriseParamètre(csAdmin_LogoSite,CN_LogoDéfaut,CN_CHAINE) = Faux ALORS
+      	RENVOYER Faux
+      FIN
+      
+      // La modification a été effectuée
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Une exception a été détectée",ExceptionInfo())
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : ModifierAdresseEmailDestinataire
+     procedure_id : 1188913287649232129
+     type_code : 15
+     code : |1-
+      // Résumé : Modifie l'adresse email utilisée lors d'une prise de contact (envoie d'une copie)
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierAdresseEmailDestinataire (<sAdresseEmail> est chaîne)
+      //
+      // Paramètres :
+      //	sAdresseEmail (chaîne ANSI) : Nouvelle adresse email
+      // Valeur de retour :
+      // 	booléen : Vrai si la modification a été effectuée, Faux sinon
+      
+      PROCEDURE ModifierAdresseEmailDestinataire(sAdresseEmail est une chaine)
+      
+      
+      // On note la modification de configuration
+      NotifierModificationConfiguration("Modification de l'adresse email pour réception en cours des contacts",LireAdresseEmailDestinataire(),sAdresseEmail)
+      
+      
+      RENVOYER  MémoriseParamètre(csAdmin_EmailDestinataire,sAdresseEmail,CN_CHAINE)
+     type : 458752
+   -
+     name : ModifierAdresseEmailExpéditeur
+     procedure_id : 1188913287649298149
+     type_code : 15
+     code : |1-
+      // Résumé : Modifie l'adresse email utilisée lors d'une prise de contact
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierAdresseEmailExpéditeur (<sAdresseEmail> est chaîne)
+      //
+      // Paramètres :
+      //	sAdresseEmail (chaîne ANSI) : Nouvelle adresse email
+      // Valeur de retour :
+      // 	booléen : Vrai si la modification a été effectuée, Faux sinon
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE ModifierAdresseEmailExpéditeur(sAdresseEmail est une chaine)
+      
+      
+      // On note la modification de configuration
+      NotifierModificationConfiguration("Modification de l'adresse email d'envoi de contact",LireAdresseEmailExpéditeur(),sAdresseEmail)
+      
+      
+      RENVOYER  MémoriseParamètre(csAdmin_EmailExpéditeur,sAdresseEmail,CN_CHAINE)
+     type : 458752
+   -
+     name : RestaurerPhotoAccueilDefaut
+     internal_properties : CAAAAAgAAADebABpFDPValyY1BmMIrllzdgiQ038FvZ6IujhUhorVXJYHclctgFAaPPYSMYJo5w/CdTRLpTN2tV/fGRg/V7LeFu0l8IJDVjpgnnugQBLNWIfxAoqbrk=
+     procedure_id : 1203861689644462959
+     type_code : 15
+     code : |1-
+      // Résumé : Restaure la photo d'accueil par défaut du site
+      // Syntaxe :
+      //[ <Résultat> = ] RestaurerPhotoAccueilDefaut ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : Vrai si la restauration a été effectuée, Faux sinon
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE RestaurerPhotoAccueilDefaut()
+      
+      
+      // On note la modification de configuration
+      NotifierModificationConfiguration("Restauration de la photo d'accueil par défaut du site")
+      
+      // On sauvegarde la phot en base
+      SI MémoriseParamètre(csAdmin_PhotoAccueil, CN_PhotoAccueilDéfaut,CN_CHAINE) = Faux ALORS
+      	RENVOYER Faux
+      FIN
+      
+      // La modification a été effectuée
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Une exception a été détectée",ExceptionInfo())
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : ModifierOptionsFiligrane
+     internal_properties : CAAAAAgAAADebABpFDPValyY1BmMIrllzdgiQ038FvZ6IujhUhorVXJYHclctgFAaPPYSMYJo5w/CdTRLpTN2tV/fGRg/V7LeFu0l8IJDVjpgnnugQBLNWIfxAoqbrk=
+     procedure_id : 1204226478208627952
+     type_code : 15
+     code : |1-
+      // Résumé : Modifie les options du filigrane
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierOptionsFiligrane (<stNouvellesOptionsFiligrane> est ST_OPTIONS_FILIGRANE, <iImageFiligrane> est Image)
+      //
+      // Paramètres :
+      //	stNouvellesOptionsFiligrane (ST_OPTIONS_FILIGRANE) : Nouvelles options pour le filigrane
+      //	iImageFiligrane (Image) : Image du filigrane
+      // Valeur de retour :
+      // 	booléen : Vrai si la modification a été effectuée, Faux sinon
+      //// Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE ModifierOptionsFiligrane(stNouvellesOptionsFiligrane est un ST_OPTIONS_FILIGRANE, iImageFiligrane est une image)
+      
+      // Variables locales
+      sOptionsSerialisées	est une chaine
+      sCheminFichierGeneration est une chaine
+      sCheminFiligrane est une chaine
+      
+      // On note la modification de configuration
+      NotifierModificationConfiguration("Modification du filigrane")
+      
+      // Sérialisation
+      QUAND EXCEPTION DANS
+      	sérialise(stNouvellesOptionsFiligrane,sOptionsSerialisées,psdXML)
+      FAIRE
+      	AjouteErreur("Un problème de format a été détecté",ErreurInfo())
+      	RENVOYER Faux
+      FIN
+      
+      // Sauvegarde en base
+      SI MémoriseParamètre(csAdmin_OptionsFiligrane, sOptionsSerialisées, CN_CHAINE) = Faux alors	
+      	RENVOYER Faux
+      FIN
+      
+      
+      // On construit le nom de fichier de l'image de génération
+      sCheminFichierGeneration = ComplèteRep(sRenvoyerRepGeneration()) + CN_Filigrane
+      
+      SI dSauveImagePNG(iImageFiligrane,sCheminFichierGeneration) = Faux ALORS
+      	AjouteErreur("Une erreur est survenue pendant la sauvegarde du fichier image du filigrane")
+      	RENVOYER Faux
+      FIN
+      
+      // On copie le fichier image du filigrane dans le répertoire _WEB autorisé
+      sCheminFiligrane = ComplèteRep(sRenvoyerRepWebUpload())+CN_Filigrane
+      SI fCopieFichierRépertoireWeb(sCheminFichierGeneration,sCheminFiligrane) = Faux ALORS
+      	AjouteErreur("Une erreur est survenue pendant le déploiement du fichier image du filigrane",ErreurInfo())
+      	RENVOYER Faux
+      FIN
+      
+      
+      // On supprime le fichier de génération
+      SI fFichierExiste(sCheminFichierGeneration) = Vrai ALORS
+      	SI fSupprime(sCheminFichierGeneration) = Faux ALORS
+      		AjouteErreur("Impossible de supprimer le fichier temporaire de génération",ErreurInfo())
+      		// Erreur non fatale
+      	FIN
+      FIN
+      
+      // On construit le chemin de l'image par rapport à fRepWeb
+      sCheminFiligrane = Remplace(sCheminFiligrane,fRepWeb(),"")
+      
+      sCheminFiligrane = Remplace(sCheminFiligrane,"\","/")
+      SI Gauche(sCheminFiligrane,1)~="/" ALORS sCheminFiligrane = Droite(sCheminFiligrane,Taille(sCheminFiligrane)-1)
+      
+      // On sauvegarde le filigrane en base
+      SI MémoriseParamètre(csAdmin_ImageFiligrane,sCheminFiligrane,CN_CHAINE) = Faux ALORS
+      	RENVOYER Faux
+      FIN
+      
+      // La modification a été effectuée
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo(errComplet))
+      RENVOYER Faux
+     type : 458752
+   -
+     name : LireOptionsFiligrane
+     internal_properties : CAAAAAgAAADebABpFDPValyY1BmMIrllzdgiQ038FvZ6IujhUhorVXJYHclctgFAaPPYSMYJo5w/CdTRLpTN2tV/fGRg/V7LeFu0l8IJDVjpgnnugQBLNWIfxAoqbrk=
+     procedure_id : 1204227268483712610
+     type_code : 15
+     code : |1+
+      // Résumé : Renvoie les options du filigrane
+      // Syntaxe :
+      //[ <Résultat> = ] LireOptionsFiligrane ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	ST_OPTIONS_FILIGRANE : 
+      //// Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE LireOptionsFiligrane()
+      
+      // Variables locales
+      stOptions 			est un ST_OPTIONS_FILIGRANE
+      sOptionsSerialisées	est une chaine
+      
+      // Options par défaut
+      stOptions.sTexteFiligrane = ""
+      stOptions.sPolice = "Arial"
+      stOptions.nTaille = 12
+      stOptions.ncouleur = Noir
+      stOptions.nAttributs = inormal
+      stOptions.nAngle = 0
+      stOptions.nOpacité = 100
+      stOptions.nPosX = 0
+      stOptions.nPosY = 0
+      
+      
+      // Récupération du contenu stocké
+      sOptionsSerialisées = RécupèreParamètre(csAdmin_OptionsFiligrane, "")
+      
+      // Dé-sérialisation
+      Si sOptionsSerialisées <> "" alors
+      	Quand exception dans
+      		Désérialise(stOptions,sOptionsSerialisées,psdXML)
+      	FAIRE
+      		AjouteErreur("Un problème de format a été détecté",ErreurInfo())
+      	FIN
+      sinon
+      	
+      fin
+      
+      // On renvoie les options
+      RENVOYER stOptions
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Exception détectée",ExceptionInfo(errComplet))
+      	RENVOYER stOptions
+     type : 458752
+   -
+     name : LireDemandeIntégrationFiligrane
+     procedure_id : 1204578012641916487
+     type_code : 15
+     code : |1-
+      // Résumé : Indique si l'on veut intégrer un filigrane dans les miniatures des photos
+      // Syntaxe :
+      //[ <Résultat> = ] LireDemandeIntégrationFiligrane ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Type indéterminé : Vrai pour intégrer le filigrane, Faux sinon
+      
+      PROCEDURE LireDemandeIntégrationFiligrane()
+      
+      RENVOYER RécupèreParamètre(csAdmin_IntegrationFiligrane,faux)
+     type : 458752
+   -
+     name : ModifierDemandeIntégrationFiligrane
+     procedure_id : 1204578386304158989
+     type_code : 15
+     code : |1-
+      // Résumé : Modifie l'état d'affichage du nom du site sur le bandeau principal
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierDemandeIntégrationFiligrane (<bIntégrerFiligrane> est booléen)
+      //
+      // Paramètres :
+      //	bIntégrerFiligrane (booléen) : Vrai pour intégrer le filigrane, Faux sinon
+      // Valeur de retour :
+      // 	booléen : Vrai si la modification a été effectuée, Faux sinon
+      
+      PROCEDURE ModifierDemandeIntégrationFiligrane(bIntégrerFiligrane est un booléen)
+      
+      // On note la modification de configuration
+      NotifierModificationConfiguration("Modification de l'état d'intégration du filigrane", LireDemandeIntégrationFiligrane(), ""+bIntégrerFiligrane)
+      
+      RENVOYER MémoriseParamètre(csAdmin_IntegrationFiligrane,bIntégrerFiligrane,CN_ENTIER)
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_SansNom1
+resources :
+ string_res :
+  identifier : 0x106dafe4003c9ab5
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      fr-FR : Impossible de restaurer le logo par défaut
+     index : 1
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

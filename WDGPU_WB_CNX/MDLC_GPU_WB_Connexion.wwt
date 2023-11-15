@@ -1,0 +1,230 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : MDLC_GPU_WB_Connexion
+ major_version : 28
+ minor_version : 0
+ type : 65543
+ description : ""
+ subtype : 8192
+page :
+ name : MDLC_GPU_WB_Connexion
+ identifier : 0x2fd7773bbab46e48
+ internal_properties : CAAAAAgAAACGOXomRBJ71AmqJnF5OXW/leX70LHj4iVEe+VY1K7cijGkbw7FIbICoHhlXvAX3XqJfmwtvu9fhbTVBinvXHhnvKF0+YqC1paFut1RNbthRnu8SQi+9dulwo6uU0nv/faUe7PIY6CSuudh2qyXmd+INHYdyo+bjhiLYQ837ZGyIF7f5xeQ42o+YD9tfBT35f81FTfP9LP33jUY2mdYCBVReFWV/sI6fup3NafmJHSs7rrjHV0J8CBL85qe4vTiHapUwHG6D9XDZamXLRX9jJEW0CpqO0Kvk8Bg6JLvPYKV6JcqJv2nMwXIy64kNH3IRqLRh4MU9cQlX0X98fQSkbRYfi8eSLTxJaVeJEY/QOW+Rob9Wj6hprjseVcse/m8m5aiLZNy9ytm6N+2nLWgtlO6QlY9FoGpHoCuJI2L8y+hFklAaIJUczbaU1c/nW7TadoYVhLSMhuJuInism8SCyez5mB0z40JrkpC6bSZYVbXJY1DObyhHLE1G6hJ5LAba6d5a0MGfu4rPZpwqFiMWVjP5fYH2nZSeMsiZ5JQHFj7Pj68z+Pnjr/r76nsApkjTDyejVxcA8xSE29gztoeH7LvNWfTQ9zqzjau/hOrtAzl8BLWLcLfUb5XXwqniKQcfRvxEukifFU2R6ce153xTg39/WQzNA3/w0gQF4HljSjldCuY0oc13It2uJx1Q7n6A0BEHrdZ5Gc377HfbVPL0vA4HPuHpBTUlsbu+5DMFbfQG6SjUYFRWTGOL0Rm7t+Pd8cE3Ltr8tXgorOLMDx4HPtyT+dTt1QlbT8A/XRxvkxYonD9NuPnxjCo5hmCiHdwu1Efnlsu+4Kg7gcBnwM4iiJVndKxX0HTEE1ezV0D5B4tD2JqlhVeyYfCjGJszgI/5M7G9LDbyTumZUPaZj3mtC4JfnIyDp08DtZrE22GP5nS+lWYOQseyH6iubkqPGtNvypje7TLKv3UTvsbPND9bTU2ZpDbDikTIYklryxLIptVlpB1wM9ht0hfhw5rV9L0IbNagLWX1FQrKVMkJQjdxRujp53RFh5R25jUyDeFdkVbt/9Im04ik+wIWEHBqso1cU0mAfoZK01ka9KYfMK5NfnFHhAUBCnw2ZiHgLGpgf43g/DY9Uar9oCauyel1sS42IeV3oUCZzMslvoXsLpbVvYl6FBGDpimGKtNtXRJqb0hHQDYEh+IhZVdVwYw5nPNjHQc5yHD/rpIrLOl/Y1zlF7nCVUeiIOAUoljWSbZKjreC+Xcl8fUBhkf+M9gHOSoi+5e8V03IptyqHZs1DaMR/7s41ksKqYsZu2U2FvEXh1kDVpevGJVqnehP0zh8yv8hMxqcWYazPokJNs+h7WVtUNoa1snIcXhfK6INS8HDHFQiMvWW9DLxNa+uGate2pBsP5RrpEFWzH6eEJCk4MmEoSyP6GlJ0FeCn0BbCfDyPK/t+22Vbcs+/7VlBsyUaJ56aVIm3V8xP4awPbAik+FYlnBr4rHz1KxFHan7JwZT84RDPW+L0o6hXlrAUfwIJPDUf3qoPuQRTOD/IP9Sk0VxEINYywgwyxiopiHsNoBnCYIhwnZVWoOylRfV7ylcFevQDzRqmxwkCBmPhEPz50b09swOO2cG9OkEmxoAmNVaOKtsELj4xQnghufC417Lxd950J+J0gDJ8CxLIHz57D0ycMC3KuQRsUG16oILj54gT1UwSGCu0Oc2C2enn2v1SLfQxWVuxUmdEw8Wi8rCmCBypfZneQWQTCPCqBj9kXfdq+koaSQdCHqGCRuObZX7af0P2QcRCLFY2J64UU7K2ZoNtnw85fFvlDZhcWK2SjU6z/SXNjgsGceL3WPXQiEbnf2vv9fNXzBH7BptzqjLmyiFoL5jLjPn1F4JJe2ZMTa1k/vUDU6H5Jh26Xnh3hEZYOjlbJLeUOrfqEva23D5A7oIuf1xQqg3M0VISBe57PAdnDdOrew8nNTZxU1RIB7ANfhxmu3iuRhKLELjyC05NEEFzAYBDAirtvwgvF5IMNbbe5snid91vtIZrNukJwTJblvMN4Om65NWaB3k0nb0r5JKyLh+wZF2ZaX6xqtLo98OXzbU7cCnHFbqF9dFphTf9UvVGlf1QW/07I09z2cSGRJcqzsmWjWJF+KuFw4dOGNZu00Regc+ReuxTQgL1QK/owuRd3nzz/Ci4ol5a3SFJNbYUI45qjNSzCV76ETRF0JXGPb+acZcNdkr+qJjF1ICvSNzBKs4KIIyDKuhMtTdLODVKuUwFWyBskSc+OoJQVgaDUJ9SX4nzj8Wx/XyPCH4SeFDG5Blt0zjOW0rBf4I0HZC66u8JY6eNlEc/8swpOOck8o4jV9CLnMcXfjapeS5x43TMfgaMUSjTtn8YSx6x0bQImfVtKmFtbm1D2/AB8QRgo2VvCEoeX1Hy8V5OQT/EK8JS+mMOnuIFEaN+bhqCJPoqcmz9lRUrhA/NthJUlcxxGbc4Qb666R/o9Yn4bQOHwiDnlwA27vhLEy6gGs8mMrL93fSr9Dmmw1aEyrkYpCG3snjzK+iYH+roVTLr/j9qD/gh9Nt0xtYwgdIhrplKBNBsJvUZR2BM/WTXbXmIyuse0Fm08PTw2bMj1ENEX3dbtqoYQlfy/hvE+qzRKY31XtDoNFYBS5rHIvyZNQggzGVeApeLVv/4G5qwawVRF+okHOaJ/F4BF5J/fWe6011Orj6jFIpHx1+yLXbwSoAVC6u0vafNDSbQABn9e8aZ2ZHWmyNEuJdZtmUdYHtILZEfXkkKRSyl3NAQr3WUOxVE5tEjXHGmnmZTPMEF6xf/pqBRsLgz8Cy1qBz1pYHZj0vWV/5gzaymUAnyutHD2FIdm0vlFsCj3oi6iRCyj205R8MmmhZL37nL2hENpEQE/I4jy0G9F9WLdjdUYx/AaLMGJvTb1RbYXZCtTNW6eOEvTpTYE0EdnfrH1C+sbRs4kGAdCtxYU4mdDgyLfzce+Z74y9s6RXHeLLvgvS7UpMYt0NYz4VtDce1i9S1mXmCGVf5ccvXTOF2JcvG+27qWlzpzlEVE2JIqmoFQotWzpFS984WqaVewy3ZLT57mOsFwqFUwQE97HQi3wED/VN9oJC/PKAA9ZOpqeGmtJVC6ubAC9Lx4Ps9s19Ax+jjhR24vzkXgiKLLNnwgThgG/1Dga/1DCuFJWTPMknvVLX6x3qgFuRyzxVf9R3Ba83JWobBAgbF9gDZx3nJOFxzVKWM71Mmt6O4eQx7TF8KltJ6xBOdIoimDT8VZ25jjfN+6k69ToZpR3po9AyB2IKUcl1jDWIx+bbv2x+JUd+rHZ+CLUaroB1k0A9nQcX/rjYUzJGp0+Vuhz/k6KkC9e6VE7PZO0PA0gdcBWMp9AQhaB9cYuPneyHxVushj7gfgr+ece0db4YwgtogCVLuJfm3kcEhaxvbr/DPI+M1liLmriU4eMdvDvaAUl0P6q9lYYtE2vY0ZugVBbntXWwp4e/nxNuPDQgR8xUhPU8kUG0advhzmg5u6ChHFV0hOYHBwShDMJ+Rup3WThlBzous5dobGHyqeVXKpMEh64l2mDzIPZCx0TBo+bps9ylsiYu4fq4CafAcOaoQh51PigOC1IfdvKw+vYL9nzp2bUrrooHJUnFQkvG77QTcHfzUPJPVWZfQ1QvXeqp5YP9E2haxhfIkAb58Ro8ALzB3WvKS+UDl/B6ly4J4KqNZhWicT6z/R65wHHfNA9FlNNpx6b9aiKNLsY6sCIvFENX52/N3uTclws+p7bg7dE7wkE8DCz0jueacNGPSLBp7g3HWAbRt+yZ0Y0rKU1lItfybHMKz7xwnI1iBvDTsTQ0jmrJ2/d1YVZQesVxCjRSJJI4Y4Z/0wjrj+o6CRLL50f9JNYqGzkOBBSwblwtRWyDX7QJQpLmZACSRXN+qLMAh9TAceCq9HxEUa8VVvnt0BL1N64iSfTCbUgzkvmHlCaqQzAPfEA5XYmYVg7W62XBFkwuVZagFVVL5n3J+5RStRq3YVgUFbMvfRexycT4ZTt6MxdCeTV/K7CJw5yNehcPzBmQUVkGyPrHE+qVZuGi/oR353vFtK98cPXFsilKm67BqOZC2BJoVXeAQjvDFt5a92BrKvNJtekxbeiQ00qYA5azDa4FaQomw9Gl4Xxch84BudxgM4XRf6CRJ1IDwl1MO+2jVJY+yplqIg9+VAWFgrO55dbsqTCjErdz02yzEaALWTecXsv9+qFNItsPg3wEyzVXy0SbdlZXBpxaAOVfq5TvMdvlnWXLt3tutL1rKYevtSC09q/YQ9iseSIyAIoUgrfC4OuCWKYeXARd/ne5CAcsVMaOy4NphG0qYX9dB9WM2TCN320OyMhygLm/wLpIKVP59oSt8SCQ6ptODnh9kJYUfQUDV8rL54w5PLG53YEdxqMYoHUIfbAUUxYMK73ZbhZV+euveKtUnWe8d438gA7TKXm4A4ztszdN3dEHTHyhRCdHLCfHY1XqkmEJzhkX5Zx9s/SozY33Lplk1+cJXfxySqWvadr9OHVsL9xZIl4oTo3T0Dr+2Nfb5dSDREltKsJM4pANlYmSlqyq9j37CFpLWzXzApyx8+R7biTWqjUob6woISLLzOrSftOPph3s2QBQjE2uE+PE/Xf6T4TWvWC8mo1SJX2WbC+Mslnf/54okMFd0jfUidhOlLPNY50Vzs5F4saDU8V3j6fnEVeIN4KraZVhWggWoRsiWOwJjjwmKXnNAkuMevphfR2xKOlWXp7FEubkSka4T29bFjqkQ5xgxd6hECSKGVMcj6HUaKfeywm0GdBGbvan7JnqWchNNvR7RtugRvXf1+Y6M6NbRT31jxS2YOYmRXKrMhg2NYowgSGn0FCmpuNw/hNFTzTPu2j063/a0HeOEWY9iI8A/MlSQfON4odJUAXtqeIfnWQUaioLG5wCip73AcfvDvDDVw8VZULRgjGwB8ll6NrosqmF4FSD8xyTXeGw38mMOL7gHrB+NsV3SP9W2/m/TaguQm1ctkcOIYn6zQaMTisYBKSYs0adQI+In1iheFKJVtwyoH/A9FPhKriUrgOZcdmqtlkAJk80z5f8n20KBzYfaT0BTEiHXxR0zv3R77EPrwaZtd9V8dZwk3344GsxmOd7M1al6sgIgyhJJtK3hn1ZuOa649cBbdLQStW6NExXPyPmjuJKj79oEzV8vg+FQPLNJbNccLFwOwLSGXLc+eB2FWsZ5pqI+gmzFabZvS90hYzcDwUuXl/UtTxkzyYNN2NujoOBdys71PoK/iDK60U7BVFzRAeZ8E/xwz2DMdsw1F9/t+uaUk/tFq3ERegW5AToAGV8PLWlOtvfACZ/9rNKLO7SFdkZUYvvFiL9uQfOZpwM8Mpvp+N8ZTK2Bg3Xxfc60iqZW9mvUHFUL9CY5VO01ixrHmwO2qcm0OGYlEe/f/aH3U9XywDmaXUVIQ==
+ properties : {}
+ controls :
+  -
+    name : MDLC_GPU_WB_Connexion
+    identifier : 0x2fd7773bbab56e48
+    internal_properties : CAAAAAgAAAB2+SMAcF4dbbcuiRt+O6Dr40e0iixd08uQZJ6PT70ukfRHQl1wkVrRjEUYjiOq4ru5YiYQ6iv63MpURkLoUiO0H7CLKyNhaPpZVoSzpobi+ydtkh2wgy7gwArGULWEeAwS3lowGR5BK1e3CZ8MzoVZbRJKlKeC6kgwKK2u91mJ82XaAXmaJJKgzMxn4z6pT35DxESjtu8w6GC9dyFA6XKX+How+837zlBy4MkynhDGEtjeq6V5l5Jdczz9qe/iK24VyWxy5bgqMn0pAoKW58D7YWWpGTwHBMR5J9pPxslW7CLK2DY/c0Qr1IoZSlgWFhp71ifI/YPXpdb9D303QfmMa3Tm9iROnzU2hqSR5slEZI0HOw29GhakGZeGrauq8Y0zlRTvrLQf2QAke1OV+Qjz5nkPYO/Aqf6n0+F1dFZRN1gvtJV6znexFWuORujs7BEwC10cH2OrnAN96V5B/GyQZM8xwOrL90adRB/dcd5XB9VR1D5UYG+u1IrAZPpHK6BOu9izIrpi6r5l7ZZBCu/XscdFSxQImzpsFVf6ySXSl95pC+sjrdLngmtB8U3yVV1WSfBEAJr58hj8ayNMZm5UKzcYGaZurU+xNMEi9VCHD/0NcrO7uWCF92IJS9zeQPx/qwwPORiYZKBlgn2AIBlz2tH4ELVOCWGpX8Rqr9visxIyIU+oqon0lUZ1/9TNSkhTQkd2EbSXdV7ldWonz0RVq0tvfVdgHX93DEkvjxI8xa1QoUcWmyz+CEhmgkIlu7gorenu0xBD0vUxCXmKCHJhLnSJnw71XEg7hjQvbKBcf/F8dtLgzlZxwFCn+UMAYXVBBazvYy/mTjUpECiCvTkC5YhkMOxWdH3KnDm2aaJYnhS9PhUmowGHdNZtUB76VJtZOfF83PMoHAC5olnvPXaek5PGhqSvwEzTII6SVCe4lBopiCFn2Op/atZxS/yo8s6p0AciSQX+9wpDSDYdHYY1hJ1FdJtnO0/DiTEJ1Y4Atu+vgW07dzmDmpJRVDGfl8VU/wgAEu8R3C1o477/P0hHpEr4pv6lUtZmncWt/OdxgfrAwVFKjEolRj04Xs46lQjbTyBGLqIhAP3Lmq5bu9l2zd4aM/a8mmaWPr8/y+FVuaEnuIhu9oRgjq50nrjl6gQ/HRGwHvLXpd1LEf71Ex32Huog0gW6c/ulAgtUm9wDzAbitkX32lRkjC3chnsBfw==
+    properties :
+     width : 97
+     height : 40
+    controls :
+     -
+       name : LIEN_Connexion
+       identifier : 0x2fd77770babd3f93
+       internal_properties : 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
+       properties :
+        x : 6
+        y : 6
+        width : 85
+        height : 21
+       type : 16
+       code_elements :
+        type_code : 47
+        alias : C1
+        p_codes :
+         -
+           code : |1-
+            
+           type : 851980
+         -
+           internal_properties : CAAAAAgAAAAukLAdLX9R6iyZ+6Nk894cSfax+eN7wWFciiWXLJG2JJGqhTww2uYsLZdOitzVaw5fQUS7C4RNl93StAMwKX36yAibD/lwODHpiqHDhvxZIoKJgNssFdHpYMWMuw1NHEZ4A8hNdxTj+Uyp+srw5borrwnTAFHB5j4fDuZ6pkKGzatPp7jfBcVFb73qtOjQPhNNJxvcG/8TcD3dd0Y33KVVcbEgKd4zh0nzZEuQsX6CUtyX469+V+cjMrpOuSXEilzutEUP+OkwegRHO4dHYkK/ZHmlpkjkAw8jbf4a0381BTkqrysNHCElDM0kR3JDlK11h4lhP3OV7vAeTQpHR1k0cDf0orkTTNngaXJNzCDQ9ZEQiEHwe3888CQu
+           code : |1+
+            // active le SSL s'il n'est pas activé
+            Si bDoitActiverSSL() ALORS
+            	SSLActive(Vrai)	
+            fin
+           type : 851998
+           role : N
+         -
+           internal_properties : CAAAAAgAAAAbUbshpY0HFzos9eSOQ+XeCZmtxqZZrG58A2HCnw5radoA0NvwIG8c33rVAcgxg9E1QmhcsxB7/93kRXEgQTEJFUPsUicTM1WvUVuYWp/z55gkDTzi/Q==
+           code : |1+
+            // si un utilisateur est actuellement connecté
+            SI bConnexionEnCours() ALORS
+            	// déconnecte l'utilisateur
+            	gpwDéconnecteUtilisateur()
+            	// ferme toutes les pages et réouvre la page courante avec les droits d'un utilisateur non connecté (invité)
+            	PageUtilise(MaPage..Nom)
+            	
+            // ouverture de la page de connexion
+            SINON
+            	bModeBaaS est un booleen = (gpwMode() = gpwModeBaaS)
+            	si EnModeAWP() ALORS
+            		PageAffiche(PAGE_GPU_WB_AWP_Login,  bModeBaaS, vrai, mapage..nom)
+            	sinon
+            		PageAffiche(PAGE_GPU_WB_Login,  bModeBaaS, Vrai, Vrai)
+            	fin
+            FIN
+           type : 851984
+         -
+           type : 1310736
+           enabled : false
+         -
+           code : |1-
+            
+           type : 852149
+           role : N
+    type : 42
+    code_elements :
+     type_code : 92
+     alias : C2
+     p_codes :
+      -
+        code : |1+
+         // Adapte le libellé
+         AdapteLibelleConnexion()
+        type : 851980
+      -
+        type : 852298
+        role : N
+      -
+        type : 851999
+        role : N
+      -
+        type : 852227
+        enabled : false
+      -
+        type : 1310979
+        enabled : false
+      -
+        type : 852228
+        role : N
+        enabled : false
+ type : 1
+ languages :
+  - fr-FR
+  - en-GB
+  - es-ES
+ code_elements :
+  type_code : 91
+  p_codes :
+   -
+     type : 852298
+     role : N
+   -
+     type : 851999
+     role : N
+   -
+     type : 852000
+     role : N
+   -
+     internal_properties : CAAAAAgAAAC8gmh+MC4QrU0utgNBfl0Ba/jqg1LK+Dwp8MhpUhqrFXKYnYkcdsFAaHOY6ObpQ/xfKfSxjrQterWfXIxYE+XU8eTa3dgHHYih6pD5FI+viG7ChbqMzBs=
+     type : 852167
+   -
+     type : 852169
+     role : N
+   -
+     type : 852225
+     role : N
+   -
+     internal_properties : CAAAAAgAAAC8gmh+MC4QrU0utgNBfl0Ba/jqg1LK+Dwp8MhpUhqrFXKYnYkcdsFAaHOY6ObpQ/xfKfSxjrQterWfXIxYE+XU8eTa3dgHHYih6pD5FI+viG7ChbqMzBs=
+     type : 852227
+   -
+     type : 1310979
+     enabled : false
+   -
+     type : 852228
+     role : N
+  procedures :
+   -
+     name : bDoitActiverSSL
+     internal_properties : CAAAAAgAAAC0TaGuYi2PqOQmiC1YmXJbMUTnjPWO9mhkQd3KIBH1rSc/lp1PMClvZtdu4BMhj7h3XT0qh3VDLEy3sw==
+     procedure_id : 2294434326813337978
+     type_code : 14
+     code : |1+
+      // Résumé : Indique si on doit activer le mode SSL
+      PROCEDURE bDoitActiverSSL()
+      
+      // si on ne veut pas activer le SSL
+      si COL_GPU_CNX.gbActiveSSL=faux ALORS
+      	renvoyer faux
+      FIN
+      
+      // Non : si on est déjà en SSL
+      EXTERNE location
+      SI location.protocol = "https" ALORS
+      	RENVOYER Faux
+      FIN
+      
+      // NON : Si la configuration ne le demande pas
+      // @@@ Toujours pour le moment
+      RENVOYER Vrai
+     type : 458752
+     role : N
+   -
+     name : bConnexionEnCours
+     procedure_id : 2294434502908807617
+     type_code : 14
+     code : |1+
+      // Résumé : Savoir si un utilisateur est actuellement connecté
+      PROCEDURE bConnexionEnCours()
+      
+      // récupération de l'utilisateur connecté
+      sLogin est une chaine unicode=gpwRecupInfoUtilisateur(gpwInfoLogin)
+      
+      // si aucun utilisateur n'est encore connecté
+      SI sLogin="" _ou_ sLogin=gpwVisiteur ALORS
+      	renvoyer faux
+      FIN
+      
+      // si un utilisateur est actuellement connecté
+      renvoyer vrai
+     type : 458752
+   -
+     name : AdapteLibelleConnexion
+     procedure_id : 2294443002705919111
+     type_code : 14
+     code : |1+
+      // Résumé : Adapte le libellé du bouton Connexion
+      PROCEDURE AdapteLibelleConnexion()
+      
+      // si un utilisateur est actuellement connecté
+      SI bConnexionEnCours() ALORS
+      	// propose la déconnexion
+      	LIEN_Connexion..Libellé=<§$0000§>
+      	
+      	// si aucun utilisateur n'est encore connecté
+      SINON
+      	// propose la connexion
+      	LIEN_Connexion..Libellé=<§$0001§>
+      FIN
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : MDLC_SansNom1
+resources :
+ string_res :
+  identifier : 0x1fd7771f220e00ba
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      fr-FR : Déconnexion
+      en-GB : Log out
+     index : 0
+   -
+     text :
+      fr-FR : Connexion
+      en-GB : Log in
+     index : 1
+webification :
+ internal_properties : CAAAAAgAAACYzxT95H3qP7nIys4LqA==
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe

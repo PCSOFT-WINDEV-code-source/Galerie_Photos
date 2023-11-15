@@ -1,0 +1,3531 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : PAGE_GPU_AWP_ModificationMotPasse
+ major_version : 28
+ minor_version : 0
+ type : 65538
+ description : ""
+ subtype : 8192
+page :
+ name : PAGE_GPU_AWP_ModificationMotPasse
+ identifier : 0x22a749fe7b6d68da
+ internal_properties : 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
+ properties : {}
+ controls :
+  -
+    name : BTN_Annuler
+    identifier : 0x2ddbba0c0ff2b204
+    internal_properties : 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
+    properties :
+     x : 268
+     y : 220
+     width : 91
+     height : 36
+    type : 4
+    code_elements :
+     internal_properties : CAAAAAgAAAB/HoNcdxWsFLBxdf+igLXD5mCE4+pigF+t6gDJjFBoOSCywLTCXCEJz/P5PrLeDDwbXnzNTaNHet7AzgIsXsS2yywde1dWhGUXyyBzDsY1w0PlzVbpa4RsuvC5dj92C3CGiBtBSDaUz6ZX2t4+yZhk+Q==
+     type_code : 4
+     alias : M12
+     p_codes :
+      -
+        code : |1-
+         //Exécute le traitement défini dans le modèle
+         ExécuteAncêtre
+        type : 851980
+      -
+        code : |1-
+         //Exécute le traitement défini dans le modèle
+         ExécuteAncêtre
+        type : 851998
+        role : N
+      -
+        internal_properties : CAAAAAgAAABvhQpwjKu/fxiiCXBy5ZViT6d7CKKTbCoGRYEqD7zf6STCDmX0Ijc4NTAVfs8EoOT8iblTBicypKDvEPbLwEogmC7B7dpCulq6bJYFrQ4sns88rKCOCQ==
+        code : |1+
+         //Exécute le traitement défini dans le modèle
+         ExécuteAncêtre
+         
+         // affiche la page d'information
+         PageAffiche(PAGE_GPU_AWP_Information,<§$13d3§>,<§$13d2§>)
+        type : 851984
+      -
+        type : 1310736
+        enabled : false
+      -
+        type : 852149
+        role : N
+        enabled : false
+     templates :
+      -
+        name : BTN_Annuler
+        identifier : 0x1526b9c908f06563
+        code_elements :
+         internal_properties : CAAAAAgAAABoM+3+DvYKDjzscsnt58vvFC1j5BpeT115ld5M45oP2OcF0vscswNm5ZSb3Oj/TcZ3qqGSmsp7IIhwOQzDgl6GSRvOwHrXPHQpdL2RwMiMxQfZbqs1TDwoBw8lxmRcuFFy1rJjz79BKy4tOZztVBmbZSABNC7ma/H3mZAYK1JKf3r4
+         type_code : 4
+         alias : M12
+         p_codes :
+          -
+            type : 851998
+            role : N
+          -
+            internal_properties : CAAAAAgAAABvhQpwjKu/fxiiCXBy5ZViT6d7CKKTbCoGRYEqD7zf6STCDmX0Ijc4NTAVfs8EoOT8iblTBicypKDvEPbLwEogmC7B7dpCulq6bJYFrQ4sns88rKCOCQ==
+            type : 851984
+          -
+            type : 1310736
+            enabled : false
+          -
+            type : 852149
+            role : N
+            enabled : false
+  -
+    name : BTN_Enregistrer
+    identifier : 0x2ddbba0c0ff4b204
+    internal_properties : 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
+    properties :
+     x : 365
+     y : 220
+     width : 144
+     height : 37
+    type : 4
+    code_elements :
+     internal_properties : CAAAAAgAAAB/HoNcdxWsFLBxdf+igLXD5mCE4+pigF+t6gDJjFBoOSCywLTCXCEJz/P5PrLeDDwbXnzNTaNHet7AzgIsXsS2yywde1dWhGUXyyBzDsY1w0PlzVbpa4RsuvC5dj92C3CGiBtBSDaUz6ZX2t4+yZhk+Q==
+     type_code : 4
+     alias : M13
+     p_codes :
+      -
+        code : |1-
+         //Exécute le traitement défini dans le modèle
+         ExécuteAncêtre
+        type : 851980
+      -
+        code : |1-
+         //Exécute le traitement défini dans le modèle
+         ExécuteAncêtre
+        type : 851998
+        role : N
+      -
+        internal_properties : CAAAAAgAAABvhQpwjKu/fxiiCXBy5ZViT6d7CKKTbCoGRYEqD7zf6STCDmX0Ijc4NTAVfs8EoOT8iblTBicypKDvEPbLwEogmC7B7dpCulq6bJYFrQ4sns88rKCOCQ==
+        code : |1+
+         //Exécute le traitement défini dans le modèle
+         ExécuteAncêtre
+         
+         // affiche la page d'information
+         PageAffiche(PAGE_GPU_AWP_Information,<§$13d5§>,<§$13d4§>)
+        type : 851984
+      -
+        type : 1310736
+        enabled : false
+      -
+        type : 852149
+        role : N
+        enabled : false
+     templates :
+      -
+        name : BTN_Enregistrer
+        identifier : 0x1526b9c908f16563
+        code_elements :
+         internal_properties : CAAAAAgAAABYvbXI1IGtr/fFY43nCvprF1dAOioM4VAAbJ2f7ir8a++G8Q1JMpLq5OLmmGCpj+YAzO+SeLxVuwlCcwLyJXiTIs4Iy76xWEjkcWfWIvlxhmm0LMuzbUV7OsVGY6TY5NXr5edWuelsijGBlKua3Nsfz5tIulYiesLg2nwX
+         type_code : 4
+         alias : M13
+         p_codes :
+          -
+            code : |1+
+             // le mot de passe est obligatoire
+             SI SAI_MotPasseNouveau="" ALORS
+             	LIB_Erreur=<§$13c7§>
+             	LIB_Erreur..Visible = vrai
+             	RepriseSaisie(SAI_MotPasseNouveau)
+             FIN
+             
+             // vérification de la confirmation du mot de passe
+             SI SAI_MotPasseNouveau<>SAI_MotPasseConfirmation ALORS
+             	LIB_Erreur=<§$13c8§>
+             	LIB_Erreur..Visible = Vrai
+             	RepriseSaisie(SAI_MotPasseConfirmation)
+             FIN
+            type : 851998
+            role : N
+          -
+            internal_properties : CAAAAAgAAABvhQpwjKu/fxiiCXBy5ZViT6d7CKKTbCoGRYEqD7zf6STCDmX0Ijc4NTAVfs8EoOT8iblTBicypKDvEPbLwEogmC7B7dpCulq6bJYFrQ4sns88rKCOCQ==
+            code : |1+
+             sMotPasse 				est une chaine unicode = SAI_MotPasseNouveau
+             sMotPasseConfirmation	est une chaine unicode	= SAI_MotPasseConfirmation
+             
+             // vérification des cas d'erreur en code serveur pour la sécurité
+             SI 	sMotPasse="" _OU_ ...
+             	sMotPasseConfirmation=""
+             	
+             	RETOUR
+             FIN
+             
+             // recherche de l'utilisateur
+             clUtilisateur est un gpwUtilisateur
+             si Execute("COL_GPU_WB.GPU_nRechercheUtilisateur", gsEmail, clUtilisateur) <> gpwOk alors
+             	retour
+             FIN
+             
+             // modification du mot de passe
+             clUtilisateur.MotDePasse=sMotPasse
+             
+             si pas Execute("COL_GPU_WB.GPU_bAjouteOuModifieUtilisateur", Faux, clUtilisateur) ALORS
+             	Info(<§$13ca§>)
+             	RETOUR
+             FIN
+             
+            type : 851984
+          -
+            type : 1310736
+            enabled : false
+          -
+            type : 852149
+            role : N
+            enabled : false
+  -
+    name : SAI_MotPasseConfirmation
+    identifier : 0x2ddbba0c0ff8b204
+    internal_properties : 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
+    properties :
+     x : 41
+     y : 159
+     width : 468
+     height : 26
+    type : 2
+    code_elements :
+     internal_properties : CAAAAAgAAABgeTtTJTyuLjI+zLVNx97h3dOW4yJrzyYkhhBjMq9fFeQE0nugav6+OxJVz/a21vCfbnqdQuC9ZHzfKiZ03uIRZm1aHwkScwaAtCQBkDMt+25S96UsmLeRkbwLRJOOoX5pVwCoa+YHdBXg6pPNiOsRRIfdi78YMzizQSLcezWzt83N7Qj5EQAf5XUN7+wTH4/Nu6VxueaMv2LK
+     type_code : 3
+     alias : M14
+     p_codes :
+      -
+        type : 852010
+        role : N
+      -
+        type : 852075
+        role : N
+      -
+        code : |1-
+         
+        type : 851983
+        role : N
+      -
+        type : 852009
+        role : N
+      -
+        type : 852244
+        role : N
+        enabled : false
+      -
+        type : 852246
+        role : N
+        enabled : false
+      -
+        type : 852245
+        role : N
+        enabled : false
+  -
+    name : SAI_MotPasseNouveau
+    identifier : 0x2ddbba0c0ffdb204
+    internal_properties : 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
+    properties :
+     x : 41
+     y : 107
+     width : 468
+     height : 26
+    type : 2
+    code_elements :
+     internal_properties : CAAAAAgAAAA/ey1K0W7GVXzG6o4bLitQhtum/UQBvvpZVc80VQR2FBy3iqKXglqijJfnS83ETAoQlq6ETXqqfN2BImLzQb7nBe5tKjFUurphtAlGaGRQHJ1KKFzlfyCHamSqLSajUKhoj4J399BIPsQ9obyh0r3U5oJVjJ1fFWtmAAnlBNwCsdMyOg==
+     type_code : 3
+     alias : M15
+     p_codes :
+      -
+        type : 852010
+        role : N
+      -
+        type : 852075
+        role : N
+      -
+        type : 851983
+        role : N
+      -
+        type : 852009
+        role : N
+      -
+        type : 852244
+        role : N
+        enabled : false
+      -
+        type : 852246
+        role : N
+        enabled : false
+      -
+        type : 852245
+        role : N
+        enabled : false
+  -
+    name : Changement_de_mot_de
+    identifier : 0x2ddbba0c1000b204
+    internal_properties : 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
+    properties :
+     x : 34
+     y : 34
+     width : 350
+     height : 32
+    type : 3
+    code_elements :
+     internal_properties : CAAAAAgAAACAMW75nPJDefWmPjDrw3Qanw9zeHfvd8BSP4RNyrzMMwL8rBYkzHeZwZfNeiDaACZB1PDrTwutkiufLfHjnXfroMcgZrpLz1Bgrsu+UQ1E6BjQIIG8OHfhL2Uu+brrnIe/QVyAD2/LhGts78HZLj2Pgg==
+     type_code : 2
+     alias : M1
+     p_codes : []
+  -
+    name : LIB_Erreur
+    identifier : 0x2ddbba0c1002b204
+    internal_properties : CAAAAAgAAABrgsrxc1iHV/AfNIUkcIPJlI+1WdcaRO9K0CSgjdNoYuPTrZPJYB+gVYxA/NXzLLb6U3m5xBID9HMvy/kphehZFnHwtOBWB9z9555boEJQ/qYE0jqPPXmP8wBp6eaXoNI90LuF3rU1DjAV+lIvOCqBnaF55FRmkIKLEsAcK0G++aN5OCFPJlhCjkN8PzEvrh1fX+lrqNFe4WJ5jXMNbxQCUX+FOPe1ZnVQHflG5996CVbdUynwFO9qoKpBL99CO9Dcu00AZWdSPyd68iokSyygbHoxpX1whJ3u4r8unxRfNgcZaAvXmA3Ls6TIyZ4Q8XP3eU5YZ4gFgUUb7M7imo8y+ykzdGWB2k1E5S4pVIxQuOuAX1MhqYIQEGqDtAWnvhmZrKy0EM5kRbjp+awj9LsjkgYsvflv0+cEHqC5ko+DgLdjOswfGzl4bydr+uXz9VQ+8VrAyHhMrQVjGcq4oRRgGjsw6657r62UQXgT8wJrvk3eADUu7HuIkw6MI53qxMoApJUh9Bux+i8bqn0iD+hnqAbrlBcmhivf9yk18AQ8ItKsghjBtbdL2u6051XprcHZoVrApGHHXGFfq6UheA3f9VGsbh+zCwSvM4E/iXDfFixB7vNiLVXkR3F+qJ7J1P/3aa1Z3OUt+FjTFPh9t2XH1ipTobWWQ3tlNfh+pdFqo9QTrMRsm5UXseho84DfBq6REa1UcPRDMjrkQK6Tii+uYB4IXQWNQ1YNF1KyPMp1OFOpXTVT6WhScw0d83C1n/eExZyEFbMPNw8bi4NF5jIodWa0YEDPanGKn4lR2G5qJXOmrQ4Hjz38p5unz3v0aUKTYk1j2EbivUMYG6rX/IXItSd3WgHawwThwRCi/WPpjKmZSX1NIkrXzTFQnmNMzzCjfiOrbr7aehwwJ52Oik1ipjTF8qFpslJu3e2DmMoU/5FJ620WzjQfNs6dx6uYQe1pW921hpnbEXx1nJYN52oTreqv8J6CFmBe2Ywj5kBdRpDOX3P/4ST7p0bgEks1NW3eZYwctmfutGjMFjyouauCgV1mofAYqQVbBEkO4NH0EX4SEVSHZvYzhDG8fTyxv/QrpKmN7S2eod6uHI9Xh74oMzAR6BkdZHnWMe9NJiGBP2rpgZGv0kbzYR4XlBbrbcS958c2vD2SI/PL84lWGR2vQShn/9u8VrRL1u924W6TiocNfb6ZScAgWqdMTihZbowW/kW6UEPb08PmT/1JSGGUwQz8YHglvl0fjtr++zuc5B39eO878Wcijy5tOdKKVm/mx0n7PP5P6ptAU6Djr5pSfGDuXmVfRne6/ZqC+Qr0HpodfxHxVFgLoNYeRFC2ZoVhRoDy56nQzb2fWbK2UeSxIDnakyly3CCGNcR6WXTKlxR4N6FEVfpnGXDvAXjut9LwZoybI9dX2zSoe+qhnbZmp5gfcth8EWje0zJxZuJmlZ72TTbHwGITmhQSkZJ48HDYlu8+ZUyP3oLwkQbd8XcmQ+q/ta5Vv4otgoDgzNKAOMg8x1kYVw50cfF/pOXaPr0xGl1FQYMnJYJsSb4qVG7tY+sKR7MwSb0pydhOqJ5dIBv2gBSLJiQA8VNiXIB4dH0hzZt5jvEJlvZsZJxJhH4ZmjWQJRaWymyeKFIV64hs5F1nmkRzOH1NciGCkc431xTodrHDqrePhA1mY89sXVOcjg4ay9VONnaAr8vLjO7buAzkf9Ux+y9uJ/2Fpoy87/rPcgjq5v5H6AmKBSJ6JadTWYm26r6foID7ZEveyY8vbdH9YU+2+jkHsixuGo/q/cTjRILChPX0aIgX7T6AiBqw5pLEupMvc+xPjeyxPJk+TSpgrx/ZSKq2GUz2ykZmAL+fEdTaNBvL+Ntxzq2MizMue3gE6/za9JloD6WDFggAEUVapw0SfPqzbXxLzwFW3ImBD56Bk1oe7rIGBVjUiCsrFTE4uSYgSJrnKMN8ja7Nd8p3HSzJoCE4WcP+i+2eMXakRH4l9U885yvjsJLbln2WLTpE5LuZcbLIjoHEWkbnZgNmL/OhadjYGLY7aoY2EVuLyfeb0eIhMUhTeDUfnbchX7m23pN7qkxiKUl4sGac
+    properties :
+     x : 34
+     y : 72
+     width : 487
+     height : 21
+    type : 3
+    code_elements :
+     internal_properties : CAAAAAgAAACAMW75nPJDefWmPjDrw3Qanw9zeHfvd8BSP4RNyrzMMwL8rBYkzHeZwZfNeiDaACZB1PDrTwutkiufLfHjnXfroMcgZrpLz1Bgrsu+UQ1E6BjQIIG8OHfhL2Uu+brrnIe/QVyAD2/LhGts78HZLj2Pgg==
+     type_code : 2
+     alias : M2
+     p_codes : []
+ type : 1
+ languages :
+  - fr-FR
+  - en-GB
+  - es-ES
+ code_elements :
+  type_code : 38
+  p_codes :
+   -
+     code : |1+
+      gsEmail=COL_GPU_CNX.gsCode
+     type : 851968
+   -
+     code : |1-
+      
+     type : 852300
+   -
+     type : 852017
+     enabled : false
+   -
+     type : 852119
+     enabled : false
+   -
+     type : 852298
+     role : N
+   -
+     type : 851999
+     role : N
+   -
+     type : 852000
+     role : N
+   -
+     type : 852232
+     enabled : false
+   -
+     type : 852167
+     enabled : false
+   -
+     type : 852169
+     role : N
+     enabled : false
+   -
+     type : 852225
+     role : N
+     enabled : false
+   -
+     type : 852227
+     enabled : false
+   -
+     type : 1310979
+     enabled : false
+   -
+     type : 852228
+     role : N
+     enabled : false
+  templates :
+   -
+     name : PAGE_GPU_AWP_ModificationMotPasse
+     identifier : 0x1526b9c908ef6563
+     code_elements :
+      internal_properties : CAAAAAgAAACDMldwG2mIgCytgatuTAkPorzAryZ+JLPBzojBLDjIgZA66OzihMGhP2tZbup+pFzj/qx9dWPP2hKsIpaoWugiV5B5j0t6+OHLR1S3SoLJb+8JaToNb6iQnhRdigu6TzTKVG/9jOpAexLDtjpSpUSQhQ==
+      type_code : 38
+      p_codes :
+       -
+         code : |1-
+          gsEmail est une chaine unicode
+         type : 851968
+       -
+         code : |1-
+          
+         type : 852300
+       -
+         type : 852017
+         enabled : false
+       -
+         type : 852119
+         enabled : false
+       -
+         type : 852298
+         role : N
+       -
+         type : 851999
+         role : N
+       -
+         type : 852000
+         role : N
+       -
+         type : 852232
+         enabled : false
+       -
+         type : 852167
+         enabled : false
+       -
+         type : 852169
+         role : N
+         enabled : false
+       -
+         type : 852225
+         role : N
+         enabled : false
+       -
+         type : 852227
+         enabled : false
+       -
+         type : 1310979
+         enabled : false
+       -
+         type : 852228
+         role : N
+         enabled : false
+ code_parameters :
+  internal_properties : CAAAAAgAAADC553wVWYfMR+QDVkpEKMybw5zukxwPqiHAmVaJhMWUcxyKpA9Z0l2NROD3EV5rF/nax6CluBL0aPPhFJsWy5aOFYvABXmNQ5N44f3u1MvJShiE+NzBB3wqLNUrdUxUMWo3hCW9YhlqGFXXZxn1tdVB8GAS1QlST1nOIFHD1xM0fyhEqCbowPvhAIlBsd5ksVZiX1T4w==
+  original_name : PAGE_SansNom1
+resources :
+ string_res :
+  identifier : 0x12a749da0804dc68
+  internal_properties : CAAAAAgAAABJPQWxD9lMODB7dzUcyTK+O76un5Purk+V3/RWHxdJytCafde1Q5nZlbVYpWnl4OYqPdALgVWS
+  strings :
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 0
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 1
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 3
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4457
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4458
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4459
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4460
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4461
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4462
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4463
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4464
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4465
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4466
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4467
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4468
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4469
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4470
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4471
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4472
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4473
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4474
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4475
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4476
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4477
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4478
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4479
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4480
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4481
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4482
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4483
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4484
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4485
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4486
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4487
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4488
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4489
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4490
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4491
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4492
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4493
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4494
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4495
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4496
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4497
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4498
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4499
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4500
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4501
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4502
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4503
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4504
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4505
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4506
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4507
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4508
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4509
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4510
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4511
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4512
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4513
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4514
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4515
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4516
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4517
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4518
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4519
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4520
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4521
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4522
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4523
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4524
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4525
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4526
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4527
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4528
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4529
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4530
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4531
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4532
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4533
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4534
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4535
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4536
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4537
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4538
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4539
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4540
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4541
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4542
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4543
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4544
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4545
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4546
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4547
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4548
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4549
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4550
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4551
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4552
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4553
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4554
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4555
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4556
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4557
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4558
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4559
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4560
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4561
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4562
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4563
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4564
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4565
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4566
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4567
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4568
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4569
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4570
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4571
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4572
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4573
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4574
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4575
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4576
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4577
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4578
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4579
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4580
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4581
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4582
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4583
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4584
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4585
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4586
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4587
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4588
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4589
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4590
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4591
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4592
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4593
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4594
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4595
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4596
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4597
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4598
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4599
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4600
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4601
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4602
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4603
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4604
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4605
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4606
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4607
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4608
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4609
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4610
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4611
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4612
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4613
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4614
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4615
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4616
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4617
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4618
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4619
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4620
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4621
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4622
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4623
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4624
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4625
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4626
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4627
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4628
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4629
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4630
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4631
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4632
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4633
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4634
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4635
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4636
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4637
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4638
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4639
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4640
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4641
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4642
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4643
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4644
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4645
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4646
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4647
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4648
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4649
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4650
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4651
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4652
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4653
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4654
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4655
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4656
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4657
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4658
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4659
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4660
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4661
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4662
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4663
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4664
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4665
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4666
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4667
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4668
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4669
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4670
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4671
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4672
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4673
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4674
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4675
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4676
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4677
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4678
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4679
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4680
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4681
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4682
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4683
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4684
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4685
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4686
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4687
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4688
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4689
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4690
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4691
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4692
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4693
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4694
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4695
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4696
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4697
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4698
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4699
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4700
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4701
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4702
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4703
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4704
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4705
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4706
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4707
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4708
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4709
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4710
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4711
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4712
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4713
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4714
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4715
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4716
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4717
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4718
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4719
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4720
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4721
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4722
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4723
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4724
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4725
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4726
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4727
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4728
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4729
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4730
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4731
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4732
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4733
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4734
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4735
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4736
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4737
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4738
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4739
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4740
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4741
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4742
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4743
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4744
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4745
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4746
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4747
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4748
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4749
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4750
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4751
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4752
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4753
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4754
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4755
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4756
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4757
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4758
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4759
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4760
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4761
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4762
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4763
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4764
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4765
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4766
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4767
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4768
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4769
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4770
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4771
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4772
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4773
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4774
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4775
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4776
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4777
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4778
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4779
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4780
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4781
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4782
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4783
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4784
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4785
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4786
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4787
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4788
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4789
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4790
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4791
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4792
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4793
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4794
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4795
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4796
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4797
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4798
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4799
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4800
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4801
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4802
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4803
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4804
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4805
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4806
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4807
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4808
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4809
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4810
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4811
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4812
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4813
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4814
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4815
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4816
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4817
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4818
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4819
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4820
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4821
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4822
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4823
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4824
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4825
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4826
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4827
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4828
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4829
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4830
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4831
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4832
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4833
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4834
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4835
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4836
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4837
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4838
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4839
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4840
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4841
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4842
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4843
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4844
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4845
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4846
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4847
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4848
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4849
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4850
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4851
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4852
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4853
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4854
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4855
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4856
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4857
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4858
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4859
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4860
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4861
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4862
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4863
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4864
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4865
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4866
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4867
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4868
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4869
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4870
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4871
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4872
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4873
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4874
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4875
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4876
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4877
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4878
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4879
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4880
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4881
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4882
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4883
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4884
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4885
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4886
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4887
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4888
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4889
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4890
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4891
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4892
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4893
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4894
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4895
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4896
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4897
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4898
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4899
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4900
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4901
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4902
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4903
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4904
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4905
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4906
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4907
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4908
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4909
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4910
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4911
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4912
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4913
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4914
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4915
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4916
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4917
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4918
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4919
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4920
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4921
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4922
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4923
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4924
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4925
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4926
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4927
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4928
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4929
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4930
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4931
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4932
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4933
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4934
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4935
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4936
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4937
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4938
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4939
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4940
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4941
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4942
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4943
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4944
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4945
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4946
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4947
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4948
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4949
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4950
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4951
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4952
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4953
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4954
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4955
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4956
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4957
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4958
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4959
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4960
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4961
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4962
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4963
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4964
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4965
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4966
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4967
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4968
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4969
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4970
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4971
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4972
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4973
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4974
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4975
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4976
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4977
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4978
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4979
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4980
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4981
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4982
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4983
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4984
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4985
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4986
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4987
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4988
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4989
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4990
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4991
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4992
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 4993
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 4994
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 4995
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 4996
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 4997
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 4998
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 4999
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 5000
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 5001
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 5002
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 5003
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 5004
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 5005
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 5006
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 5007
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 5008
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 5009
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 5010
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 5011
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 5012
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 5013
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 5014
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 5015
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 5016
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 5017
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 5018
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 5019
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 5020
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 5021
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 5022
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 5023
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 5024
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 5025
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 5026
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 5027
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 5028
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 5029
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 5030
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 5031
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 5032
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 5033
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 5034
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 5035
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 5036
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 5037
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 5038
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 5039
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 5040
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 5041
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 5042
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 5043
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 5044
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 5045
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 5046
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 5047
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 5048
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 5049
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 5050
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 5051
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 5052
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 5053
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 5054
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 5055
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 5056
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 5057
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 5058
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 5059
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 5060
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 5061
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 5062
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 5063
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 5064
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 5066
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 5067
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 5068
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 5069
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 5070
+   -
+     text :
+      fr-FR : <Le mot de passe est obligatoire>
+      en-GB : <The password is mandatory>
+     index : 5071
+   -
+     text :
+      fr-FR : <Erreur de confirmation du mot de passe>
+      en-GB : <Password confirmation error>
+     index : 5072
+   -
+     text :
+      fr-FR : Impossible de modifier l'utilisateur.
+      en-GB : Unable to modify user.
+     index : 5073
+   -
+     text :
+      fr-FR : "Votre mot de passe n'a pas été modifié.\r\nVous pouvez vous connecter au site avec votre mot de passe actuel."
+      en-GB : "Your password has not been changed.\r\nYou can log in to the site with your current password."
+     index : 5074
+   -
+     text :
+      fr-FR : Annulation du changement de mot de passe
+      en-GB : Password modification canceled
+     index : 5075
+   -
+     text :
+      fr-FR : "Le changement de votre de mot de passe a bien été pris en compte.\r\nVous pourrez vous connecter avec ce nouveau mot de passe lors de votre prochaine visite."
+      en-GB : "Password changed successfully.\r\nYou can use this new password next time you log in."
+     index : 5076
+   -
+     text :
+      fr-FR : Mot de passe modifié
+      en-GB : The password was modified
+     index : 5077
+webification :
+ internal_properties : CAAAAAgAAACYzxT95H3qP7nIys4LqA==
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe

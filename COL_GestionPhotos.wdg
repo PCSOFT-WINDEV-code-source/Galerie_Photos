@@ -1,0 +1,962 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : COL_GestionPhotos
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x106d9552000fd2a4
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     code : |1-
+      constant 
+      
+      	// Rôles des photos
+      	ROLE_PHOTO_GRAND = 2			// Photo en grand : 750 max en largeur, 500 max en hauteur
+      //	ROLE_PHOTO_ZOOM = 3 				// Photo pour les zooms : 1024 max en largeur, 728 max en hauteur
+      	
+      
+      fin
+      
+      ST_Photo est une structure
+      	nIDPhoto			est un entier
+      	sTitre 				est une chaine
+      	sDescription		est une chaine
+      	sEXIF 				est une chaine
+      	nPlace 				est un entier
+      	bufBinaire			est un buffer
+      	nIDAlbum 			est un entier
+      	sMotsClés 			est une chaine
+      	dhDatePriseDeVue 	est une dateheure
+      	dhDateUpload 		est une dateheure
+      	dhDateModification 	est une dateheure	
+      FIN
+      
+      
+      PUBLIC
+      gtabPhotos		est un tableau de ST_Photo
+      
+      
+      ST_Upload est une structure
+      	bufContenu 		est un buffer
+      	sCheminFichier 	est une chaîne 
+      	nIDPhoto		est un entier
+      FIN
+      
+      ST_Miniature est une structure
+      	nIDMiniature 	est un entier
+      	sChemin 		est une chaine
+      FIN
+      
+      
+      gtabIDPhotosUploadées est un tableau dynamique d'entiers
+     type : 720896
+  procedures :
+   -
+     name : AjouterNouvellePhoto
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1184185348945875084
+     type_code : 15
+     code : |1-
+      // Résumé : Gestion de l'upload des photos
+      // Syntaxe :
+      //[ <Résultat> = ] AjouterNouvellePhoto (<bufPhoto> est buffer, <sFichier> est chaîne [, <gnIDAlbum> est entier])
+      //
+      // Paramètres :
+      //	bufPhoto (buffer) : L'image de la photo
+      //	sFichier (chaîne ANSI) : Fichier uploadé
+      //	gnIDAlbum (entier - valeur par défaut=-1) : Album dans lequel est ajoutée la photo
+      // Valeur de retour :
+      // 	entier : ID de la photo créée en base
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE AjouterNouvellePhoto( bufPhoto est un buffer, sFichier est une chaine, gnIDAlbum est un entier = -1)
+      
+      //************* Ajout de la photo dans la base de données *************//
+      nIDPhoto est un entier = _AjouterPhotoEnBase(bufPhoto, sFichier, gnIDAlbum)
+      
+      SI nIDPhoto = -1 ALORS
+      	RENVOYER -1
+      FIN
+      
+      
+      //************* Génération des miniatures *************//
+      tabRoles est un tableau d'entiers
+      sCheminWeb est une chaîne
+      
+      // Initialisation de la liste des rôles
+      tabRoles =[ ROLE_PHOTO_GRAND]//, ROLE_PHOTO_ZOOM ]
+      
+      // On génère les différentes tailles de photo correspondant aux différents rôles
+      POUR TOUTE element nRole DE tabRoles
+      	
+      	// Génération de la miniature sur disque
+      	sCheminWeb = _GenererMiniatures(bufPhoto, nIDPhoto, nRole)
+      	
+      	//Ajout de la miniature en base
+      	_AjouterMiniatureEnBase(nIDPhoto, nRole, sCheminWeb)
+      		
+      FIN
+      
+      RENVOYER nIDPhoto
+      
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER -1
+     type : 458752
+   -
+     name : _GenererMiniatures
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1184189089862671077
+     type_code : 15
+     code : |1-
+      // Résumé : Génère la miniature d'une photo, permet d'avoir les photos en différentes tailles
+      // Syntaxe :
+      //[ <Résultat> = ] _GenererMiniatures (<bufPhoto> est buffer, <nIDPhoto> est entier, <nRole> est entier)
+      //
+      // Paramètres :
+      //	bufPhoto (buffer) : Buffer contenant l'image source
+      //	nIDPhoto (entier) : Identifiant de la photo dans la base de données
+      //	nRole (entier) : Rôle de la photo >> en grand ou en petit ?
+      // Valeur de retour :
+      // 	chaîne ANSI : Chemin de la photo
+      //
+      //// Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCÉDURE Privée _GenererMiniatures(bufPhoto est un buffer, nIDPhoto est un entier, nRole est un entier)
+      
+      
+      iMiniature					est une image
+      sNomFichier 				est une chaine
+      sCheminWeb					est une chaine
+      
+      // Chargement de l'image
+      iMiniature	 				= bufPhoto
+      iMiniature..CouleurRemplissage = CouleurPalette(couleurFondGénéral,1)
+      
+      // Selon le rôle, on redimensionne
+      selon nRole
+      
+      	CAS ROLE_PHOTO_GRAND  // Photo en grand : 750 max en largeur, 500 max en hauteur	
+      		dRedimensionne(iMiniature,750,500, drHomothétique + drHauteQualité)
+      		
+      //	CAS ROLE_PHOTO_ZOOM  // Photo quand elle est zoomée : en très grand 
+      //		dRedimensionne(iMiniature,1024,768, drHomothétique + drHauteQualité)
+      		
+      	AUTRE CAS
+      		AjouteErreur("Rôle de photo non géré")
+      		RENVOYER ""
+      FIN
+      
+      _AppliquerFiligrane(iMiniature)
+      
+      // Construction du nom du fichier Miniature
+      sNomFichier = "photo_"+nIDPhoto+"_"+ nRole + "_" + DateDuJour() + Maintenant +  ".jpg"
+      
+      sCheminWeb =  _CréationFichierMiniature(iMiniature, sNomFichier)
+      
+      RENVOYER sCheminWeb
+      
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER ""
+     type : 458752
+   -
+     name : _AjouterPhotoEnBase
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1185174905122037720
+     type_code : 15
+     code : |1-
+      // Résumé : Ajoute la photo dans la base de données 
+      // Syntaxe :
+      //[ <Résultat> = ] _AjouterPhotoEnBase (<bufPhoto> est buffer, <sFichier> est chaîne [, <gnIDAlbum> est entier])
+      //
+      // Paramètres :
+      //	bufPhoto (buffer) : L'image de la photo
+      //	sFichier (chaîne ANSI) : Fichier uploadé
+      //	gnIDAlbum (entier - valeur par défaut=-1) : Album dans lequel est ajoutée la photo
+      // Valeur de retour :
+      // 	entier : ID de la photo ajoutée 
+      
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE PRIVEE _AjouterPhotoEnBase(bufPhoto est un buffer, sFichier est une chaine, gnIDAlbum est un entier = -1)
+      
+      
+      // Variables locales
+      nIDPhoto		est un entier	= -1
+      
+      
+      // Initialisation de l'enregistrement
+      HRAZ(Photo)
+      
+      // On remplit les infos pour l'enregistrement
+      Photo.Binaire = bufPhoto
+      photo.Titre = fExtraitChemin(sFichier, fFichier)
+      
+      Photo.EXIF = LireInfosExif(bufPhoto)
+      
+      sDate est une chaine = gauche(ImageInfoValeur(bufPhoto,imgDate),10)
+      sHeure est une chaine = Droite(ImageInfoValeur(bufPhoto,imgDate),8)
+      
+      photo.DatePriseDeVue = chaineversdate(sDate, "AAAA:MM:JJ")  + remplace(sHeure,":","")
+      photo.DateUpload = DateDuJour() + maintenant()
+      
+      ImageInfoFerme(bufPhoto)
+      
+      // Ajout en base
+      SI HAjoute(Photo) = Faux ALORS
+      	AjouteErreur("Impossible d'ajouter la photo")
+      	RENVOYER -1
+      FIN
+      
+      // On mémorise l'identifiant
+      nIDPhoto = Photo.IDPhoto
+      
+      si gnIDAlbum <> -1 alors
+      	AssocierAlbum(nIDPhoto, gnIDAlbum)
+      FIN
+      
+      // On renvoie l'identifiant de la photo
+      RENVOYER nIDPhoto
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER -1
+     type : 458752
+   -
+     name : _AppliquerFiligrane
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1185200292676161705
+     type_code : 15
+     code : |1-
+      // Résumé : Applique un filigrane sur la miniature
+      // Syntaxe :
+      //[ <Résultat> = ] _AppliquerFiligrane (<iMiniature> est Image)
+      //
+      // Paramètres :
+      //	iMiniature (Image) : Photo sur laquelle on veut appliquer un filigrane
+      // Valeur de retour :
+      // 	booléen : Vrai si tout s'est bien passé, Faux sinon
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE PRIVE _AppliquerFiligrane( iMiniature est une image )
+      
+      //Si on a demandé à ne pas intégrer de filigrane, on sort de suite, inutile de continuer
+      si LireDemandeIntégrationFiligrane() = Faux ALORS
+      	renvoyer vrai 
+      FIN
+      
+      iImageFiligrane est une Image
+      sCheminFiligrane est une chaine 
+      
+      stOptionsFiligrane est un ST_OPTIONS_FILIGRANE
+      stOptionsFiligrane = LireOptionsFiligrane()
+      
+      //Récupération du filigrane défini dans le site
+      sCheminFiligrane = LireFiligraneImage()
+      
+      //Aucun filigrane n'a été défini, on quitte la procédure
+      si sCheminFiligrane = "" alors
+      	renvoyer vrai
+      sinon
+      	SI fFichierExiste(ComplèteRep(sRenvoyerRepWeb()) + sCheminFiligrane) = faux ALORS	
+      		AjouteErreur("Le fichier pour le filigrane n'est pas accessible")
+      		RENVOYER faux  
+      	fin
+      FIN
+      
+      iImageFiligrane = dChargeImage(sCheminFiligrane)
+      
+      dRedimensionne(iImageFiligrane, iMiniature..largeur, iMiniature..hauteur, drHomothétiqueCentré + drHauteQualité)
+      
+      dfusionne(iMiniature,iImageFiligrane, stOptionsFiligrane.nOpacité)
+      
+      renvoyer vrai
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER faux
+     type : 458752
+   -
+     name : LireMiniaturePhotoSelonRole
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1185286432551132102
+     type_code : 15
+     code : |1-
+      // Résumé : Renvoie le chemin d'une photo donnée
+      // Syntaxe :
+      //[ <Résultat> = ] LireMiniaturePhotoSelonRole (<nIDPhoto> est entier, <nRole> est entier)
+      //
+      // Paramètres :
+      //	nIDPhoto (entier) : Identifiant du produit
+      //	nRole (entier) : Rôle de la photo
+      // Valeur de retour :
+      // 	Type indéterminé : Chemin de la photo
+      //
+      //// Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE LireMiniaturePhotoSelonRole(nIDPhoto est un entier, nRole est un entier )
+      
+      LaMiniature est une ST_Miniature
+      
+      // Recherche de la photo
+      HLitRecherchePremier(Miniature,IDPhotorole,[nIDPhoto,nRole])
+      
+      SI HTrouve(Miniature) = Faux ALORS
+      	AjouteErreur("Miniature demandée non trouvée")
+      	renvoyer null
+      SINON
+      	 LaMiniature.sChemin =  miniature.Chemin
+      	 LaMiniature.nIDMiniature =  Miniature.IDMiniature
+      	 renvoyer LaMiniature
+      FIN
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Exception détectée",ExceptionInfo())
+      	RENVOYER null
+      	
+     type : 458752
+   -
+     name : _CréationFichierMiniature
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1185645075191497690
+     type_code : 15
+     code : |1-
+      // Résumé : Crée sur disque le fichier d'une image en mémoire
+      // Syntaxe :
+      //[ <Résultat> = ] _CréationFichierMiniature (<iMiniature> est Image, <sNomFichier> est chaîne)
+      //
+      // Paramètres :
+      //	iMiniature (Image) : Image de la miniature à enregistrer sur le disque
+      //	sNomFichier (chaîne ANSI) : Nom du fichier à générer
+      // Valeur de retour :
+      // 	chaîne ANSI : Chemin Web de la miniature
+      //// Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE PRIVEE _CréationFichierMiniature(iMiniature est une image, sNomFichier est une chaine)
+      
+      sCheminComplet				est une chaine
+      sCheminCompletGeneration	est une chaine
+      sCheminWeb					est une chaine
+      
+      sCheminComplet = ComplèteRep(sRenvoyerRepWebUpload()) + sNomFichier
+      sCheminCompletGeneration = ComplèteRep(sRenvoyerRepGeneration()) + sNomFichier
+      
+      // Sauvegarde au format JPEG
+      SI dSauveImageJPEG(iMiniature,sCheminCompletGeneration,100) = Faux ALORS
+      	AjouteErreur("Erreur lors de la sauvegarde de la miniature",ErreurInfo())
+      	RENVOYER ""
+      FIN
+      
+      // On transfert l'image générée dans le répertoire _WEB
+      
+      // Transfert direct
+      SI fCopieFichierRépertoireWeb(sCheminCompletGeneration,sCheminComplet) = Faux ALORS
+      	AjouteErreur("Impossible de transférer l'image dans le répertoire _WEB",ErreurInfo())
+      	RENVOYER ""
+      FIN
+      
+      // On supprime le fichier de génération
+      SI fFichierExiste(sCheminCompletGeneration) = Vrai ALORS
+      	SI fSupprime(sCheminCompletGeneration) = Faux ALORS
+      		AjouteErreur("Impossible de supprimer le fichier temporaire de génération",ErreurInfo())
+      		// Erreur non fatale
+      	FIN
+      FIN
+      
+      // On construit le chemin de l'image par rapport à fRepWeb
+      sCheminWeb = Remplace(sCheminComplet,fRepWeb(),"")
+      
+      sCheminWeb = Remplace(sCheminWeb,"\","/")
+      SI Gauche(sCheminWeb,1)~="/" ALORS sCheminWeb = Droite(sCheminWeb,Taille(sCheminWeb)-1)
+      
+      // On renvoie le chemin Web
+      RENVOYER	sCheminWeb 
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER ""
+     type : 458752
+   -
+     name : _AjouterMiniatureEnBase
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1185669517846239804
+     type_code : 15
+     code : |1-
+      // Résumé : Enregistre en base le chemin de la miniature d'une photo 
+      // Syntaxe :
+      //[ <Résultat> = ] _AjouterMiniatureEnBase (<nIDPhoto>, <nRole>, <sCheminWeb>)
+      //
+      // Paramètres :
+      //	nIDPhoto : ID de la photo
+      //	nRole : Rôle de la photo : normal, petit, grand ..
+      //	sCheminWeb : Chemin de la miniature sur le disque
+      // Valeur de retour :
+      // 	entier : ID de la miniature ajoutée
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE PRIVEE _AjouterMiniatureEnBase(nIDPhoto, nRole, sCheminWeb)
+      
+      
+      // Variables locales
+      nIDMiniature		est un entier	= -1
+      
+      // Initialisation de l'enregistrement
+      HRAZ(Miniature)
+      
+      Miniature.IDPhoto = nIDPhoto
+      Miniature.Role = nRole
+      
+      // Construction de l'image
+      Miniature.Chemin = sCheminWeb
+      
+      // Ajout en base
+      SI HAjoute(Miniature) = Faux ALORS
+      	AjouteErreur("Ajout de la miniature impossible")
+      	RENVOYER -1			
+      FIN
+      
+      nIDMiniature = Miniature.IDMiniature
+      
+      renvoyer nIDMiniature
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER -1
+     type : 458752
+   -
+     name : ModifierPhoto
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1187842736960275163
+     type_code : 15
+     code : |1-
+      // Résumé : Modifie le titre de la photo dont l'ID est passé en paramètre
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierPhoto (<nIDPhoto> [, <sTitre> [, <sDescription> [, <sMotsClés>]]])
+      //
+      // Paramètres :
+      //	nIDPhoto : ID de la photo à modifier
+      //	sTitre (valeur par défaut="") : Nouveau titre pour la photo
+      //	sDescription (valeur par défaut="") : Nouvelle description pour la photo
+      //	sMotsClés (valeur par défaut="") : Mots-clés pour la photo
+      // Valeur de retour :
+      // 	booléen : Vrai si tout s'est bien passé
+      // Traitement automatique des exceptions : exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE ModifierPhoto(nIDPhoto, sTitre = "", sDescription = "", sMotsClés = "")
+      
+      // Recherche de la photo
+      HLitRecherchePremier(photo,IDPhoto,nIDPhoto)
+      SI HTrouve(Photo) = Faux ALORS
+      	AjouteErreur("Photo demandée non trouvée")
+      	RENVOYER Faux
+      FIN
+      
+      
+      photo.Titre			= sTitre
+      Photo.Description	= sDescription
+      Photo.MotsClés		= sMotsClés
+      
+      
+      // Modification en base
+      SI HModifie(Photo) = Faux ALORS
+      	AjouteErreur("Modification de la photo impossible")
+      	RENVOYER faux		
+      FIN
+      
+      renvoyer vrai
+      
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER faux
+     type : 458752
+   -
+     name : AssocierAlbum
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1188575385504873953
+     type_code : 15
+     code : |1-
+      // Résumé : Associer la photo à un album
+      // Syntaxe :
+      //[ <Résultat> = ] AssocierAlbum (<nIDPhoto>, <nIDAlbum>)
+      //
+      // Paramètres :
+      //	nIDPhoto : ID de la photo
+      //	nIDAlbum : Id de l'album
+      // Valeur de retour :
+      // 	booléen : Vrai si tout s'est bien passé
+      // Traitement automatique des exceptions : exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE AssocierAlbum(nIDPhoto, nIDAlbum)
+      
+      
+      //******************************* On associe l'album à la photo
+      // Recherche de la photo
+      HLitRecherchePremier(Photo, IDPhoto, nIDPhoto)
+      SI HTrouve(Photo) = Faux ALORS
+      	AjouteErreur("Photo demandée non trouvée")
+      	RENVOYER Faux
+      FIN
+      
+      photo.IDAlbum = nIDAlbum
+      
+      // Modification en base
+      SI HModifie(Photo) = Faux ALORS
+      	AjouteErreur("Modification de la photo impossible")
+      	RENVOYER Faux		
+      FIN
+      
+      
+      //Est-ce que c'est la 1ère photo ajoutée à l'album ? >> Si oui, on va l'associer automatiquement à l'album
+      //Cependant si ce traitement échoue, on ne renvoie pas pour autant une erreur 
+      //car ce n'est pas trop grave 
+      // Recherche de l'album
+      HLitRecherchePremier(Album, IDAlbum, nIDAlbum)
+      SI HTrouve(Album) = Faux ALORS
+      	AjouteErreur("Album non trouvé")
+      FIN
+      
+      si album.IDPhoto = 0 alors 
+      	album.IDPhoto = nIDPhoto
+      	
+      	// Modification en base
+      	SI HModifie(Album) = Faux ALORS
+      		AjouteErreur("Modification de l'album impossible")
+      	FIN
+      	
+      FIN
+      
+      
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      	
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER Faux
+     type : 458752
+   -
+     name : SupprimerPhoto
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1189358581305904521
+     type_code : 15
+     code : |1+
+      // Résumé : Supprimer la photo spécifiée
+      // Syntaxe :
+      //[ <Résultat> = ] SupprimerPhoto (<nIDPhoto> est entier)
+      //
+      // Paramètres :
+      //	nIDPhoto (entier) : ID de la photo à supprimer
+      // Valeur de retour :
+      // 	booléen : Vrai si tout s'est bien passé
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE SupprimerPhoto( nIDPhoto est un entier )
+      
+      bChangerPhotoReprésentantAlbum est un booléen
+      
+      
+      //Note : les miniatures de la photo seront supprimées automatiquement par HyperFileSQL lors de la suppression de la photo
+      //Idem pour les commentaires de la photo
+      
+      //********* Par contre, il faut supprimer les fichiers .jpg des différentes tailles des miniatures de la photo
+      // on va stocker les chemins des miniatures, et on ne les supprimera que quand on aura terminé les suppressions en base
+      tabCheminMiniatures est un tableau de chaînes 
+      
+      REQ_MiniaturesPhoto.pIDPhoto = nIDPhoto
+      REQ_MiniaturesPhoto.pRole = Null
+      
+      sRépertoire est une chaîne = ComplèteRep(sRenvoyerRepWeb()) 
+      sCheminMiniature est une chaîne
+      
+      HExécuteRequête(REQ_MiniaturesPhoto)
+      POUR TOUT REQ_MiniaturesPhoto 
+      	sCheminMiniature = sRépertoire + REQ_MiniaturesPhoto.Chemin
+      	TableauAjoute(tabCheminMiniatures, sCheminMiniature)
+      FIN
+      //*********
+      
+      
+      // Recherche de la photo en base
+      HLitRecherchePremier(Photo,IDPhoto,nIDPhoto)
+      SI HTrouve(Photo) = Faux ALORS
+      	AjouteErreur("Photo non trouvée en base")
+      	RENVOYER Faux
+      FIN
+      
+      //On recherche l'album à laquelle elle appartient pour savoir si elle le représente
+      //Si oui, il va falloir changer la photo représentant l'album
+      HLitRecherchePremier(Album,IDAlbum,Photo.IDAlbum)
+      SI HTrouve(Album) = Vrai ALORS
+      	SI Album.IDPhoto = nIDPhoto ALORS
+      		bChangerPhotoReprésentantAlbum = Vrai
+      	FIN
+      FIN
+      
+      // Suppression de la photo en base
+      SI HSupprime(Photo) = Faux ALORS
+      	AjouteErreur("Suppression de la photo impossible")
+      	RENVOYER Faux
+      FIN
+      
+      //On a effectué les suppressions en base, on supprime maintenant les fichiers sur disque
+      // On supprime le fichier de génération
+      POUR TOUT sCheminMiniature DE tabCheminMiniatures
+      	SI fFichierExiste(sCheminMiniature) = Vrai ALORS
+      		SI fSupprime(sCheminMiniature) = Faux ALORS
+      			AjouteErreur(ChaîneConstruit("Impossible de supprimer le fichier miniature de la photo %1",nIDPhoto),ErreurInfo())
+      			// Erreur non fatale
+      		FIN
+      	FIN
+      FIN
+      
+      
+      //S'il fallait changer la photo représentant l'album, on le fait maintenant
+      SI bChangerPhotoReprésentantAlbum = Vrai ALORS
+      	//On recherche la 1ère photo que l'on trouve dans cet album
+      	HLitRecherchePremier(Photo,IDAlbum,Album.IDAlbum)	
+      	SI HTrouve(Photo) ALORS
+      		Album.IDPhoto = Photo.IDPhoto
+      	SINON	
+      		Album.IDPhoto = 0
+      	FIN
+      	// Modification en base
+      	SI HModifie(Album) = Faux ALORS
+      		AjouteErreur("Modification de l'album impossible")
+      	FIN
+      FIN
+      
+      //Si on arrive là, c'est que ça s'est déroulé correctement
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER Faux
+      
+      
+     type : 458752
+   -
+     name : LireNbreCommentaires
+     procedure_id : 1190460021309205850
+     type_code : 15
+     code : |1+
+      // Résumé : Récupère le nombre de commentaires pour la photo dont l'ID est passé en paramètre
+      // Syntaxe :
+      //[ <Résultat> = ] LireNbreCommentaires (<nIDPhoto>)
+      //
+      // Paramètres :
+      //	nIDPhoto : Id de la photo dont on veut le nombre de commentaires
+      // Valeur de retour :
+      // 	entier : Nombre de commentaires pour la photo
+      
+      PROCEDURE LireNbreCommentaires(nIDPhoto)
+      
+      nNbreCommentaires est un entier
+      
+      //Recherche le nombre de photos dans cet album
+      REQ_NbreCommentairesPhoto.pIDPhoto = nIDPhoto
+      
+      HExécuteRequête(REQ_NbreCommentairesPhoto)
+      
+      HLitPremier(REQ_NbreCommentairesPhoto)
+      
+      nNbreCommentaires = REQ_NbreCommentairesPhoto.NbreCommentaires
+      
+      renvoyer nNbreCommentaires
+      
+      
+      
+      
+     type : 458752
+   -
+     name : LireInfosExif
+     procedure_id : 1200846029725648905
+     type_code : 15
+     code : |1-
+      // Résumé : Formate les informations EXIFS pour les afficher en clair
+      // Syntaxe :
+      //[ <Résultat> = ] LireInfosExif (<bufPhoto>)
+      //
+      // Paramètres :
+      //	bufPhoto : Photo
+      // Valeur de retour :
+      // 	chaîne ANSI : les infos EXIF
+      
+      PROCEDURE LireInfosExif(bufPhoto)
+      
+      
+      sInfosExif est une chaine
+      
+      sFlash est une chaîne
+      nFlash est un entier sur 8 = ImageInfoValeur(bufPhoto,imgFlash)
+      
+      
+      si nFlash[1] = 1 ALORS
+      	sFlash = "Déclenché"
+      sinon
+      	sFlash = "Non déclenché"
+      FIN
+      
+      selon nFlash[2 A 3] 
+      //	cas 0 :
+      //		sFlash += " Pas de fonctionnalité de détection de lumière de retour"
+      	cas 2 :
+      		sFlash += [", "] + "Lumière de retour non détectée"
+      	cas 3 :
+      		sFlash += [", "] + "Lumière de retour détectée"	
+      FIN
+      SELON nFlash[4 A 5] 
+      	CAS 1 :
+      		sFlash += [", "] + "Déclenchement forcé"
+      	CAS 2 :
+      		sFlash += [", "] + "Désactivé"
+      	CAS 3 :
+      		sFlash += "Mode Auto"	
+      FIN
+      
+      si nFlash[6] = 1 ALORS
+      	sFlash += [", "] + "Pas de fonctionnalité de flash"	
+      FIN
+      
+      SI nFlash[7] = 1 ALORS
+      	sFlash += [", "] + "Mode anti-yeux rouges actif"	
+      FIN
+      
+      sOrientation est une chaine
+      SI ImageInfoValeur(bufPhoto,imgOrientation) DANS (1,2,3,4) ALORS
+      	sOrientation = "Paysage" 
+      SINON 
+      	sOrientation = "Portrait" 
+      FIN
+      
+      sProgrammeExposition est une chaine
+      Selon ImageInfoValeur(bufPhoto,imgProgrammeExposition) 
+      	cas 1 : 
+      		sProgrammeExposition = "Manuel" 
+      	cas 2 :
+      		sProgrammeExposition = "Normal"
+      	CAS 3 :
+      		sProgrammeExposition = "Priorité Ouverture" 
+      	cas 4 :
+      		sProgrammeExposition = "Priorité Vitesse"
+      	CAS 5 :
+      		sProgrammeExposition = "Créatif"
+      	CAS 6 :
+      		sProgrammeExposition = "Action"
+      	cas 7 :
+      		sProgrammeExposition = "Portrait de près sans arrière plan"
+      	CAS 8 :
+      		sProgrammeExposition = "Paysage"
+      	autre cas :
+      		sProgrammeExposition = "Indéfini"
+      FIN
+      
+      sModeMesure est une chaine
+      SELON ImageInfoValeur(bufPhoto,imgModeMesure) 
+      	CAS 1 : 
+      		sModeMesure = "Moyenne" 
+      	CAS 2 :
+      		sModeMesure = "Moyenne centrée"
+      	CAS 3 :
+      		sModeMesure = "Point" 
+      	CAS 4 :
+      		sModeMesure = "Multipoint"
+      	CAS 5 :
+      		sModeMesure = "Motif"
+      	CAS 6 :
+      		sModeMesure = "Partiel"
+      	AUTRE CAS :
+      		sModeMesure = "Indéfini"
+      FIN
+      
+      sInfosExif = "Appareil Photo"  + tab + tab + tab + ImageInfoValeur(bufPhoto,imgModèleAppareil) + rc + 
+      "Exposition" + TAB + TAB + TAB + arrondi(val(ImageInfoValeur(bufPhoto,imgTempsExposition)),3)  + RC + 
+      "Ouverture" + TAB + TAB + TAB + "f/" +ImageInfoValeur(bufPhoto,imgOuvertureF)  + RC + 
+      "Longueur focale" + TAB + TAB + TAB + ImageInfoValeur(bufPhoto,imgLongueurFocale) + " mm" + RC + 
+      "Dimensions" + TAB + TAB + TAB + ImageInfoValeur(bufPhoto,imgLargeur) + "x" + ImageInfoValeur(bufPhoto,imgHauteur) + RC + 
+      "Flash" + TAB + TAB + TAB + TAB + sFlash + RC + 
+      "Orientation" + TAB + TAB + TAB + sOrientation + RC + 
+      "Résolution X" + TAB + TAB + TAB + ImageInfoValeur(bufPhoto,imgRésolutionX)  + RC + 
+      "Résolution Y" + TAB + TAB + TAB + ImageInfoValeur(bufPhoto,imgRésolutionY)  + RC + 
+      "Programme Exposition" + TAB + TAB + sProgrammeExposition + RC + 
+      "Mode de mesure" + TAB + TAB + TAB + sModeMesure + rc +
+      "Luminosité" + TAB + TAB + TAB + ImageInfoValeur(bufPhoto,imgLuminosité)
+      
+      renvoyer sInfosExif
+     type : 458752
+   -
+     name : RetirerPhotoDeSonAlbum
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1201987425903832543
+     type_code : 15
+     code : |1+
+      // Résumé : Retirer la photo spécifiée de son album
+      // Syntaxe :
+      //[ <Résultat> = ] RetirerPhotoDeSonAlbum (<nIDPhoto> est entier)
+      //
+      // Paramètres :
+      //	nIDPhoto (entier) : ID de la photo à gérer
+      // Valeur de retour :
+      // 	booléen : Vrai si tout s'est bien passé
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE RetirerPhotoDeSonAlbum( nIDPhoto est un entier )
+      
+      bChangerPhotoReprésentantAlbum est un booléen
+      
+      // Recherche de la photo en base
+      HLitRecherchePremier(Photo,IDPhoto,nIDPhoto)
+      SI HTrouve(Photo) = Faux ALORS
+      	AjouteErreur("Photo non trouvée en base")
+      	RENVOYER Faux
+      FIN
+      
+      //On recherche l'album à laquelle elle appartient pour savoir si elle le représente
+      //Si oui, il va falloir changer la photo représentant l'album
+      HLitRecherchePremier(Album,IDAlbum,Photo.IDAlbum)
+      SI HTrouve(Album) = Vrai ALORS
+      	SI Album.IDPhoto = nIDPhoto ALORS
+      		bChangerPhotoReprésentantAlbum = Vrai
+      	FIN
+      FIN
+      
+      photo.IDAlbum = 0
+      
+      // Modification en base
+      SI HModifie(Photo) = Faux ALORS
+      	AjouteErreur("La photo n'a pas pu être retirée de l'album")
+      	RENVOYER Faux
+      FIN
+      
+      //S'il fallait changer la photo représentant l'album, on le fait maintenant
+      SI bChangerPhotoReprésentantAlbum = Vrai ALORS
+      	//On recherche la 1ère photo que l'on trouve dans cet album
+      	HLitRecherchePremier(Photo,IDAlbum,Album.IDAlbum)	
+      	SI HTrouve(Photo) ALORS
+      		Album.IDPhoto = Photo.IDPhoto
+      	SINON	
+      		Album.IDPhoto = 0
+      	FIN
+      	// Modification en base
+      	SI HModifie(Album) = Faux ALORS
+      		AjouteErreur("Modification de l'album impossible")
+      	FIN
+      FIN
+      
+      //Si on arrive là, c'est que ça s'est déroulé correctement
+      renvoyer vrai
+      
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER Faux
+      
+      
+     type : 458752
+   -
+     name : PivoterMiniature
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1203368889318835965
+     type_code : 15
+     code : |1+
+      // Résumé : Permet de faire pivoter une miniature selon l'angle passé en paramètre
+      // Syntaxe :
+      //[ <Résultat> = ] PivoterMiniature (<nIDMiniature>, <nAngle>)
+      //
+      // Paramètres :
+      //	nIDMiniature : ID de la miniature à pivoter
+      //	nAngle : Angle de la rotation
+      // Valeur de retour :
+      // 	chaîne ANSI : Le chemin de la nouvelle image générée
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE PivoterMiniature(nIDMiniature, nAngle)
+      
+      
+      sNomFichier			est une chaîne
+      sCheminComplet 		est une chaîne
+      sCheminWeb 			est une chaîne
+      
+      HLitRecherchePremier(Miniature, IDMiniature, nIDMiniature)
+      SI HTrouve(Miniature) = Faux ALORS
+      	AjouteErreur("Miniature non trouvée en base")
+      	RENVOYER ""
+      FIN
+      
+      //Chemin sur disque de la miniature ?
+      sNomFichier = fExtraitChemin(Miniature.Chemin, fFichier+fExtension)
+      sCheminComplet = ComplèteRep(sRenvoyerRepWebUpload()) + sNomFichier
+      
+      //On charge la miniature en mémoire
+      iMiniature est une Image = dChargeImage(sCheminComplet) 
+      
+      //On fait la rotation
+      dRotation(iMiniature, nAngle)
+      
+      //Nouveau nom pour la miniature : on remplace l'ancienne DateHeure par celle actuelle
+      sNomFichier = Remplace(sNomFichier,  ExtraitChaîne(fExtraitChemin(Miniature.Chemin, fFichier),1,"_",DepuisFin),DateDuJour() + Maintenant())
+      
+      sCheminWeb = _CréationFichierMiniature(iMiniature, sNomFichier)
+      
+      SI sCheminWeb = "" ALORS
+      	RENVOYER ""
+      FIN
+      
+      // Modification en base
+      Miniature.Chemin = sCheminWeb
+      
+      SI HModifie(Miniature)  = Faux ALORS
+      	AjouteErreur("Impossible de modifier la miniature")
+      	RENVOYER ""
+      FIN
+      
+      // On supprime l'ancien fichier de la miniature, celui avant pivot
+      SI fFichierExiste(sCheminComplet) = Vrai ALORS
+      	SI fSupprime(sCheminComplet) = Faux ALORS
+      		AjouteErreur("Impossible de supprimer l'ancien fichier miniature",ErreurInfo())
+      		// Erreur non fatale
+      	FIN
+      FIN
+      
+      
+      // On renvoie le chemin Web
+      RENVOYER sCheminWeb
+      
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER ""
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_SansNom1
+resources :
+ string_res :
+  identifier : 0x1fbe19c40a7dcdbe
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

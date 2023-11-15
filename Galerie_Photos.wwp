@@ -1,0 +1,379 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : Galerie_Photos
+ major_version : 28
+ minor_version : 0
+ type : 4097
+ description : ""
+ subtype : 0
+project :
+ identifier : 0x0
+ internal_properties : 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
+ configurations :
+  -
+    name : Site
+    internal_properties : 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
+    configuration_id : 8928867153345525957
+    type : 2
+    generation_name : Galerie_Photos.wdl
+    version : {}
+    index_page_generation_name : PAGE_Albums
+    language : 1
+    64bits : true
+ elements :
+  identifier : 0x4069b13f0002858b
+  elements :
+   -
+     name : REQ_AlbumsMiniature1
+     identifier : 0x409ce41d003a3bf8
+     internal_properties : CAAAAAgAAACU8vw4h/y0tx4bhd75O3MhkqPJYUQ03jyilrFzjxH7Ld93SQ8n0d2Ya9fBP8c5wTeBgQ==
+     physical_name : .\REQ_AlbumsMiniature1.WDR
+     type : 5
+   -
+     name : REQ_MiniaturesAssociées
+     identifier : 0x4074313e0017e409
+     internal_properties : CAAAAAgAAADrZ9M39LH5Ijv4Zj+a3U588aIc3FPD0oqycsKvMV8/ySelma+Gsrz5iLQuigrGsibudg==
+     physical_name : .\REQ_MiniaturesAssociées.WDR
+     type : 5
+   -
+     name : REQ_NbreAlbums
+     identifier : 0x4076922f001c1270
+     internal_properties : CAAAAAgAAAAuNAYaqdZeEdQVo/jbH4nDDGlbA6qUyVFKqK3taxWHkW9j2e9F8/u2daEb5a0j39E7Ow==
+     physical_name : .\REQ_NbreAlbums.WDR
+     type : 5
+   -
+     name : COL_GestionPhotos
+     identifier : 0x406d9564000c183b
+     internal_properties : CAAAAAgAAADDvztvXAkhOpOAHldCqVZ8yaqEFKJ9vySctxc6BBvz1TuhnaueWmQh4FxGsnJuCv7GTg==
+     physical_name : .\COL_GestionPhotos.wdg
+     type : 7
+   -
+     name : COL_BackOffice
+     identifier : 0x407d250e002328c0
+     internal_properties : CAAAAAgAAAB10V1BfttTDNHCXBGMxTw2s9D+Zugbujqss3+S2CfvcZOdZdNknKLfop4Y4KBQKJhg4A==
+     physical_name : .\COL_BackOffice.wdg
+     type : 7
+   -
+     name : Modele_PAGE_PleinEcran
+     identifier : 0x40869c40003a3312
+     internal_properties : CAAAAAgAAAAQ7khUUwggO5KPyeI9SLPp8kVBQXZQWwWFk04W/jJi/sowjEzzDRFM31tFs3NtFYt1/Q==
+     physical_name : .\Modele_PAGE_PleinEcran.wwt
+     type : 65541
+   -
+     name : PAGE_Albums
+     identifier : 0x406da5740014d64d
+     internal_properties : CAAAAAgAAAB+5FZKeSaOoaRl8yjrF3kjvIl7E6ojM9W2kYncEw0PKZd7QQc1w8uGBTGrFZ1TL6Fr6w==
+     physical_name : .\PAGE_Albums.wwh
+     type : 65538
+   -
+     name : REQ_AlbumsMiniature
+     identifier : 0x409ce442003ccd2f
+     internal_properties : CAAAAAgAAABzz6v/TDlxqoOwzucyknbshZC8zHERp2COnx7A+Jjyxnq2ZGTuChRR0Ey2AoJ+em5W3g==
+     physical_name : .\REQ_AlbumsMiniature.WDR
+     type : 5
+   -
+     name : REQ_NbrePhotosAlbum
+     identifier : 0x408509340035c448
+     internal_properties : CAAAAAgAAABl4U1RbgsjPIGyzOE8ngyWP772fjcApMNOywDJrNQ+kqJSjEz0DBJP0k5IsHBgGIhw8A==
+     physical_name : .\REQ_NbrePhotosAlbum.WDR
+     type : 5
+   -
+     name : REQ_CommentairesDétaillésPhoto
+     identifier : 0x408674c10038ed29
+     internal_properties : CAAAAAgAAAAPC2e7iDV9rre0wpsGiVrw3f6oCD9pffhyQqfVrfMjzWuBXWvqFhhV1EC6Bo5CPrIaGg==
+     physical_name : .\REQ_CommentairesDétaillésPhoto.WDR
+     type : 5
+   -
+     name : PAGE_Contact
+     identifier : 0x406da678001acc6e
+     internal_properties : CAAAAAgAAABwzqj0M2hAW3Iv6YIdchcVmjlBWWqDRv2us9/PvERQ+DDCAjYTLTFsP/vl01ONdWtV3Q==
+     physical_name : .\PAGE_Contact.wwh
+     type : 65538
+   -
+     name : REQ_Albums
+     identifier : 0x402655a5004a82ea
+     internal_properties : CAAAAAgAAADxTSl9yve/8MtpDqrMMSYk85DO1lkh4qar8VxPTVND7QcZk2/EPOmYlIJ8RMwE/OzUXA==
+     physical_name : .\REQ_Albums.WDR
+     type : 5
+   -
+     name : Modele_PAGE_Admin_PleinEcran
+     identifier : 0x40ae0fe1003fc544
+     internal_properties : CAAAAAgAAADasIKGJWJKVWgp14wPiXHj6Imnf9EUjX+FOl28cN81232lX2nhHy9qOeXf2VmXY1W/Rw==
+     physical_name : .\Modele_PAGE_Admin_PleinEcran.wwt
+     type : 65541
+   -
+     name : REQ_NbreCommentairesPhoto
+     identifier : 0x40815d390032b27d
+     internal_properties : CAAAAAgAAAAOFGa6iTZ+sbS1w5g7lmnzkLPvZ8ShmRBOa5KLQFBMhLC+YmblExtW1UG7BY1DP7EbGw==
+     physical_name : .\REQ_NbreCommentairesPhoto.WDR
+     type : 5
+   -
+     name : REQ_TousAlbumsMiniature
+     identifier : 0x409ce775003e4de3
+     internal_properties : CAAAAAgAAAAacMLG5aIKFSjpl8zPTCE7pOuzGyxkyN+2FXu0mvYm4mr0LCwh3++qeaUfmRnXoxX/Bw==
+     physical_name : .\REQ_TousAlbumsMiniature.WDR
+     type : 5
+   -
+     name : REQ_PhotosAlbum
+     identifier : 0x40744bed001921b6
+     internal_properties : CAAAAAgAAAB716PnxIGpsouINu8qawJwiYbsXO9nhXlWDf4VU10xpxnre132AgxJ2ES+Ovr2gnZe5g==
+     physical_name : .\REQ_PhotosAlbum.WDR
+     type : 5
+   -
+     name : REQ_MiniaturesPhoto
+     identifier : 0x4072cd3a00153103
+     internal_properties : CAAAAAgAAAAUcny4B3w0N56bBV553a+NIkfhcTBuFcxSSoo7tds5h6VZh7GnUV0Y61dBv0e5QbcBAQ==
+     physical_name : .\REQ_MiniaturesPhoto.WDR
+     type : 5
+   -
+     name : COL_GestionAlbums
+     identifier : 0x4074598c001856ea
+     internal_properties : CAAAAAgAAABaMAIGpeLK1eipVwyP5/03cN2/px42LPR2KdO7q0XPEfc7wfdhn6/quWVfWdkX49U/xw==
+     physical_name : .\COl_GestionAlbums.wdg
+     type : 7
+   -
+     name : REQ_RecherchePhoto
+     identifier : 0x408e9368003d57e7
+     internal_properties : CAAAAAgAAAA/GxcLuOXN3uekMus2cH608VA4IBEL6MNWTROA4r5UlHS8RnL6BghFxHBqVt4S7uIqKg==
+     physical_name : .\REQ_RecherchePhoto.WDR
+     type : 5
+   -
+     name : PAGE_ADMIN_ALBUM_LISTE
+     identifier : 0x4080207200314476
+     internal_properties : CAAAAAgAAADJRTHV0o+nSG1e2J04Y2TGn6jayollu1tMreN9Ew0J5xU7x4HoEB5bLurULPTslATMVA==
+     physical_name : .\PAGE_ADMIN_ALBUM_LISTE.wwh
+     type : 65538
+   -
+     name : COL_EnvoiEmail
+     identifier : 0x4077f1d2001eb13a
+     internal_properties : CAAAAAgAAADjX9vP/KkBGjPgfrdigsb8dSCs3OEcqPGLPW576AiClmpm1HT+OkQBgLwmkhLOqh7mbg==
+     physical_name : .\COL_EnvoiEmail.wdg
+     type : 7
+   -
+     name : COL_GestionCommentaires
+     identifier : 0x407e8c190085b717
+     internal_properties : CAAAAAgAAADQLggUk8hge9LPCaJ9/ge9uunBKSk0F5iAEoiRD+C0RLQuFrKzTVEMn5sF87Mt1cs1PQ==
+     physical_name : .\COL_GestionCommentaires.wdg
+     type : 7
+   -
+     name : COL_ConfigSite
+     identifier : 0x406dafea001eb334
+     internal_properties : CAAAAAgAAAD6UCJmRQIqNQgJt2yvwRFTqPl3/zKrJW2O9+GWSbdd88U9J6HBf4/KWcU/uXl3A/XfZw==
+     physical_name : .\COL_ConfigSite.wdg
+     type : 7
+   -
+     name : COL_ParamètresSite
+     identifier : 0x406db2e600205ceb
+     internal_properties : CAAAAAgAAACxjek9Crf/MDU2QGWwNLx+MxZyKq4Rv8asE0zNTfIgiGS4RvJwiJbTVsI8hAzEvCyUnA==
+     physical_name : .\COL_ParamètresSite.wdg
+     type : 7
+   -
+     name : REQ_PhotoReprésentantAlbum
+     identifier : 0x4086d81e003810c7
+     internal_properties : CAAAAAgAAADxTSl9yve/8PX2AKVw9XC691Qy6k0X9StOz2O18b/fySP9BbOwSFYTloJ8RMwE/OzUXA==
+     physical_name : .\REQ_PhotoReprésentantAlbum.WDR
+     type : 5
+   -
+     name : TEST_COL_ParamètresSite
+     identifier : 0x4252b2f002461605
+     internal_properties : CAAAAAgAAAByyKr+TTpyrYCxz+Q3j8XvWCUXD0WAnqet/N864k1HqW9TyX/5BxdS0U23AYF/e21X3w==
+     physical_name : .\TEST_COL_ParamètresSite.wxt
+     type : 17
+   -
+     name : PAGE_ListePhotos
+     identifier : 0x4ffc56240042b8e8
+     internal_properties : CAAAAAgAAAC3svkcLm63K8jYSUUlTOkcF81a250J0gGu26RipzPoRd7sCQvIUCaEbd4nf9sa+L47SIlwmiOAo+Bf2xd3nZinRFG4Sw==
+     physical_name : .\PAGE_ListePhotos.wwh
+     type : 65538
+     report :
+      fr-FR : FR
+   -
+     name : REQ_NbrePhotos
+     identifier : 0x4ffd64ae00c28b5b
+     internal_properties : CAAAAAgAAAAiu938TY+CVph8cRN4o9Lz7R/qFNYevwTFE7eLl8jUyM8GO9eRTicqWeEe0zev1Q==
+     physical_name : .\REQ_NbrePhotos.WDR
+     type : 5
+   -
+     name : PAGE_ADMIN_ALBUM_CREATION
+     identifier : 0x4017d9860156a5e3
+     internal_properties : CAAAAAgAAAD0cz7ba5OOcpeRACzId/wfGNpP9spGgbL1BcpMTr4QlN134OhNeV7U2X4kvmxpK3NOW5Rlly6VtvcmEtgw1ONsixj3jA==
+     physical_name : .\PAGE_ADMIN_ALBUM_CREATION.wwh
+     type : 65538
+     report :
+      fr-FR : FR
+   -
+     name : PAGE_ADMIN_PHOTO_LISTE
+     identifier : 0x4019220d0093f9b0
+     internal_properties : CAAAAAgAAADwdzrXN89avkNl1OD8u7DT3CYjOv4qpaY5RTDhfIgYmdPxjZkSWu+tdQ5wGoBF158ar2Ap0+pJ6jv6ZozsCDfAfxT7iA==
+     physical_name : .\PAGE_ADMIN_PHOTO_LISTE.wwh
+     type : 65538
+     report :
+      fr-FR : FR
+   -
+     name : PAGE_ADMIN_SELECT_PHOTOS
+     identifier : 0x401d0d76006f9ffc
+     internal_properties : CAAAAAgAAAADdjXIOlrDN9TMfVk5QO0ga6m+v2GtJieC2VXlEnBg51VfWvqREfy4EXpJUf/GVBqXLOWUZh+Ep+RTzxtzkay7eA389w==
+     physical_name : .\PAGE_ADMIN_SELECT_PHOTOS.wwh
+     type : 65538
+     report :
+      fr-FR : FR
+   -
+     name : PAGE_ADMIN_ALBUM_DETAILS
+     identifier : 0x402112ad00d0d4ec
+     internal_properties : CAAAAAgAAAD3arRsQ76E3221swhjdgFKoiIT0LuHhEyH3HD81S+ClLMp3nwGw9aMekjUexoVEQ8mOdWa0W9JWamsoP7NJYViDf1z
+     physical_name : .\PAGE_ADMIN_ALBUM_DETAILS.wwh
+     type : 65538
+     report :
+      fr-FR : FR
+  other_elements :
+   -
+     physical_name : .\description.gif
+   -
+     physical_name : .\description.rtf
+  analysis : .\Galerie_Photos.ana\Galerie_Photos.wda
+  net_assemblies : []
+  uwp_api : []
+  external_components : []
+  internal_components :
+   -
+     physical_name : .\WDGPU_WB_CNX\WDGPU_WB_CNX.wci
+ common_generation_directory : true
+ user_groupware_site :
+  internal_properties : CAAAAAgAAABDbjpsnxIs0lbdAffPMVa0ep/QO9/KQItDagGAEHe4napmmXJ4YONwoC25CavV6hKxtZGEqQRyY4T67Fh4BNwU4HPMPixofXlkWfX+uNAFZ316OZChcYegYYk=
+  mode : 5
+  connections_history : true
+ wb_skin : 260 Winki
+ wb_color_palette : Blue Cloud
+ languages :
+  - fr-FR
+ site_map :
+  roots : []
+  orphans :
+   -
+     name : PAGE_ADMIN_ALBUM_CREATION
+     parameters : []
+     title :
+      fr-FR : WEBDEV - Galerie Photos
+     description :
+      fr-FR : WEBDEV - Galerie Photos
+   -
+     name : PAGE_ADMIN_ALBUM_DETAILS
+     parameters : []
+     title :
+      fr-FR : WEBDEV - Galerie Photos
+     description :
+      fr-FR : WEBDEV - Galerie Photos
+   -
+     name : PAGE_ADMIN_ALBUM_LISTE
+     parameters : []
+     title :
+      fr-FR : WebDev - Galerie Photos
+     description :
+      fr-FR : WebDev - Galerie Photos
+   -
+     name : PAGE_ADMIN_PHOTO_LISTE
+     parameters : []
+     title :
+      fr-FR : WEBDEV - Galerie Photos
+     description :
+      fr-FR : WEBDEV - Galerie Photos
+   -
+     name : PAGE_ADMIN_PHOTO_LISTE
+     parameters : []
+     title :
+      fr-FR : WEBDEV - Galerie Photos
+     description :
+      fr-FR : WEBDEV - Galerie Photos
+   -
+     name : PAGE_ADMIN_SELECT_PHOTOS
+     parameters : []
+     title : {}
+     description : {}
+   -
+     name : PAGE_Albums
+     parameters : []
+     title : {}
+     description : {}
+   -
+     name : PAGE_Contact
+     parameters : []
+     title : {}
+     description : {}
+   -
+     name : PAGE_ListePhotos
+     parameters : []
+     title :
+      fr-FR : WEBDEV - Galerie Photos
+     description :
+      fr-FR : WEBDEV - Galerie Photos
+ url_rewriting :
+  internal_properties : CAAAAAgAAADkPzcUdUUS7wCiun+MCjqYH70RJdzkSv/nRvXZ3ENdikMa6bcHtsAH
+ code_elements :
+  internal_properties : CAAAAAgAAAAqLIkakQ7kBbEpklPNcTXXSXyRqrtPgruMNiYqVab4W6CnHkE6rhq/T+iUqH3HVhNuI/CLf/msMiyZWQO2Lly/O9M1zg==
+  type_code : 0
+  p_codes :
+   -
+     code : |1+
+      // Le superviseur du GPU est un compte créé par défaut ayant pour login "superviseur" et pour mot de passe "superviseur"
+      // Il a accès à la gestion des comptes
+      // C'est également le superviseur qui a accès à l'administration du site
+      
+     type : 196608
+   -
+     code : |1-
+      
+     type : 196610
+   -
+     type : 196621
+   -
+     type : 196627
+     enabled : false
+  orphans :
+   -
+     name : Site
+     identifier : 0x4069b140000385f8
+     code_elements :
+      type_code : 159
+      p_codes : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : Galerie_Photos1
+rad :
+ internal_properties : CAAAAAgAAABhIL0UXeZmxDJxY3Xy0Q==
+project_explorer :
+ explorer_type : project
+ children :
+  -
+    explorer_type : pages
+    children :
+     -
+       name : ADMINISTRATION
+       explorer_type : custom_folder
+       children :
+        -
+          name : PAGE_ADMIN_ALBUM_LISTE
+          explorer_type : element
+          type : 65538
+        -
+          name : PAGE_ADMIN_ALBUM_CREATION
+          explorer_type : element
+          type : 65538
+        -
+          name : PAGE_ADMIN_PHOTO_LISTE
+          explorer_type : element
+          type : 65538
+        -
+          name : PAGE_ADMIN_SELECT_PHOTOS
+          explorer_type : element
+          type : 65538
+        -
+          name : PAGE_ADMIN_ALBUM_DETAILS
+          explorer_type : element
+          type : 65538
+resources :
+ string_res :
+  identifier : 0x0
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAAAd98VSJfHHqE3P0QHwrwdhn7ig8dWBR6valpUTgnAMTVXiDg==

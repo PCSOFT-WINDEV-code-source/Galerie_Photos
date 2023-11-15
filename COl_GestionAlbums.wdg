@@ -1,0 +1,704 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : COL_GestionAlbums
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x107456fc0039541d
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     code : |1-
+      constant
+      	
+      	CS_LIBELLE_ALBUMS = "Albums"
+      	
+      fin
+      
+      // Cette structure correspond à la structure décrite dans l'analyse pour le fichier Album
+      // Cette structure est utilisée pour la gestion du backoffice
+      ST_Album est une structure
+      	IDAlbum 			est un entier
+      	Titre 				est un chaîne
+      	Description 		est un chaîne
+      	IDAlbumParent		est un entier
+      	IDPhoto		 	est un entier
+      	NbrePhotos			est un entier
+      	
+      	tabSousAlbums	est un tableau de ST_Album
+      FIN
+      
+      PUBLIC
+      gtabAlbums est un tableau de ST_Album
+     type : 720896
+  procedures :
+   -
+     name : _AjouterAlbumEnBase
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1185671759818969899
+     type_code : 15
+     code : |1-
+      // Résumé : Ajoute l'album dans la base de données 
+      // Syntaxe :
+      //[ <Résultat> = ] _AjouterAlbumEnBase (<sTitre> est chaîne, <sDescription> est chaîne)
+      //
+      // Paramètres :
+      //	sTitre (chaîne ANSI) : Titre à donner à l'album
+      //	sDescription (chaîne ANSI) : Description à donner à l'album 
+      // Valeur de retour :
+      // 	entier : ID de l'album ajouté 
+      
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE PRIVEE _AjouterAlbumEnBase(sTitre est une chaine, sDescription est une chaine)
+      
+      
+      // Variables locales
+      nIDAlbum		est un entier	= -1
+      
+      // Initialisation de l'enregistrement
+      HRAZ(Album)
+      
+      // On remplit les infos pour l'enregistrement
+      album.Titre = sTitre
+      Album.Description = sDescription
+      
+      // Ajout en base
+      SI HAjoute(Album) = Faux ALORS
+      	AjouteErreur("Impossible d'ajouter l'album")
+      	RENVOYER -1
+      FIN
+      
+      // On mémorise l'identifiant
+      nIDAlbum = Album.IDAlbum
+      
+      // On renvoie l'identifiant de l'album
+      RENVOYER nIDAlbum
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER -1
+     type : 458752
+   -
+     name : ChargeAlbums
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1188995042345581968
+     type_code : 15
+     code : |1-
+      // Résumé : Charge la liste des albums
+      // Syntaxe :
+      //[ <Résultat> = ] ChargeAlbums ( [<bViderContenu> est booléen])
+      //
+      // Paramètres :
+      //	bViderContenu (booléen - valeur par défaut=1) : Est ce qu'il faut vider le tout avant ?
+      // Valeur de retour :
+      // 	booléen : Vrai si le chargement est effectué, Faux sinon
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      //	nAlbumBase (entier - valeur par défaut=0) : ID de l'album à partir duquel on commence le chargement
+      procedure ChargeAlbums( bViderContenu est un booléen = 1 )
+      
+      // Variables locales
+      tabNouvelsAlbums est un tableau de St_Album
+      stAlbum		est un ST_Album
+      
+      SI bViderContenu = vrai alors
+      	// Suppression du contenu précédent
+      	TableauSupprimeTout(gtabAlbums)
+      FIN
+      
+      
+      // Récupération des albums depuis la racine
+      tabNouvelsAlbums = Listealbums()
+      Pour tout element stAlbum de tabNouvelsAlbums
+      	// On ajoute à l'album
+      	TableauAjoute(gtabAlbums, stAlbum)
+      	// Est-ce que cet album à des fils ?
+      	ChargeAlbums(Faux)
+      FIN
+      
+      RENVOYER VRai
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Exception détectée",ExceptionInfo())	
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : LireAlbums
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1188997331563551986
+     type_code : 15
+     code : |1-
+      // Résumé : Renvoie l'album demandé
+      // Syntaxe :
+      //[ <Résultat> = ] LireAlbums (<nIDAlbumRecherché> est entier)
+      //
+      // Paramètres :
+      //	nIDAlbumRecherché (entier) : Identifiant de l'album
+      // Valeur de retour :
+      // 	ST_Album : Contenu de l'album
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCÉDURE LireAlbums( nIDAlbumRecherché est un entier )
+      
+      // Variables locales
+      nIndiceTableau		est un entier
+      stAlbumErr			est un ST_Album
+      
+      // Initialisation de l'album "erreur"
+      stAlbumErr.IDAlbum = -1 
+      
+      // Recherche de l'actualité
+      nIndiceTableau = TableauCherche(gtabAlbums,tcLinéaire,"IDAlbum",nIDAlbumRecherché)
+      SI nIndiceTableau <=0 alors
+      	AjouteErreur("Album non trouvé")
+      	renvoyer stAlbumErr
+      FIN
+      
+      // On renvoie l'album
+      renvoyer gtabAlbums[nIndiceTableau]
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Exception détectée",ExceptionInfo())
+      	RENVOYER stAlbumErr
+     type : 458752
+   -
+     name : LirePhotoAlbum
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1188997516247516747
+     type_code : 15
+     code : |1-
+      // Résumé : Renvoie une photo d'un album
+      // Syntaxe :
+      //[ <Résultat> = ] LirePhotoAlbum (<nIDAlbum> est entier)
+      //
+      // Paramètres :
+      //	nIDAlbum (entier) : Identifiant de l'album
+      // Valeur de retour :
+      // 	chaîne ANSI : Chemin de la photo
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE LirePhotoAlbum(nIDAlbum est un entier)
+      
+      sChemin est une chaine 
+      REQ_PhotoReprésentantAlbum.pIDAlbum = nIDAlbum
+      REQ_PhotoReprésentantAlbum.pRole = ROLE_PHOTO_grand
+      
+      HExécuteRequête(REQ_PhotoReprésentantAlbum)
+      HLitPremier(REQ_PhotoReprésentantAlbum)
+      sChemin = REQ_PhotoReprésentantAlbum.Chemin
+      
+      si sChemin ~= "" alors
+      	AjouteErreur("Pas de photo pour cet album")
+      	RENVOYER ""
+      SINON
+      	RENVOYER sChemin
+      FIN
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Exception détectée",ExceptionInfo())
+      	RENVOYER ""
+     type : 458752
+   -
+     name : SupprimerAlbum
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1188998744608252433
+     type_code : 15
+     code : |1-
+      // Résumé : Supprimer l'album de photos spécifié
+      // Syntaxe :
+      //[ <Résultat> = ] SupprimerAlbum (<nIDAlbum> est entier)
+      //
+      // Paramètres :
+      //	nIDAlbum (entier) : Identifiant de l'album à supprimer
+      // Valeur de retour :
+      // 	booléen : Vrai si la suppression est effectuée, Faux sinon
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCÉDURE SupprimerAlbum( nIDAlbum est un entier )
+      
+      
+      // Recherche en base
+      HLitRecherchePremier(Album, IDAlbum,nIDAlbum)
+      SI Htrouve(Album) = Faux alors
+      	AjouteErreur(<§@107456f600373ddf0001§>)
+      	RENVOYER Faux
+      FIN
+      
+      // Suppression en base
+      Si HSupprime(Album) = Faux alors
+      	AjouteErreur(<§@107456f600373ddf0002§>)
+      	RENVOYER Faux
+      FIN
+      
+      // Mise à jour 
+      ActualiserAlbums()
+      
+      // Par défaut, la suppression se déroule correctement
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER Faux
+     type : 458752
+   -
+     name : ModifierAlbum
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1188998783263033398
+     type_code : 15
+     code : |1+
+      // Résumé : Modifie un album de photos
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierAlbum (<nIDAlbumRecherché> est entier, <bufImage> est buffer, <sTitre> est chaîne, <sDescription> est chaîne)
+      //
+      // Paramètres :
+      //	nIDAlbumRecherché (entier) : Identifiant de l'album à modifier
+      //	bufImage (buffer) : Nouvelle image de l'album
+      //	sTitre (chaîne ANSI) : Nouveau titre de l'album
+      //	sDescription (chaîne ANSI) : Nouvelle description de l'album 
+      // Valeur de retour :
+      // 	booléen : Vrai si l'album a été mis à jour, Faux sinon
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCÉDURE ModifierAlbum( LOCAL nIDAlbumRecherché est un entier , LOCAL bufImage est un buffer , LOCAL sTitre est un chaîne,  LOCAL sDescription est un chaîne)
+      // Variables locales
+      
+      // Recherche en base
+      HLitRecherchePremier(Album,IDAlbum,nIDAlbumRecherché)
+      SI HTrouve(Album) = Faux ALORS
+      	AjouteErreur("Album non trouvé")
+      	RENVOYER Faux
+      FIN
+      
+      // On remplit les données
+      Album.titre 			= sTitre
+      Album.Description 		= sDescription
+      
+      
+      // Génération de la miniature
+      SI bufImage<>"" ALORS
+      	
+      //	Album.chemin = _GenereMiniatureFamille(bufImage,nIDFamilleRecherchée)
+      //	Album.idPhoto = 
+      FIN
+      
+      // Modification en base
+      SI HModifie(Album) = Faux ALORS
+      	AjouteErreur("Modification de l'album impossible")
+      	RENVOYER Faux
+      FIN
+      
+      // Mise à jour
+      ActualiserAlbums()
+      
+      
+      // Par défaut, la modification se déroule correctement
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER Faux
+      
+     type : 458752
+   -
+     name : ActualiserAlbums
+     procedure_id : 1188999530587385569
+     type_code : 15
+     code : |1+
+      // Résumé : Actualise la liste des albums
+      // Syntaxe :
+      //ActualiserAlbums ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      
+      Procédure ActualiserAlbums( )
+      
+      // On remet à jour le contenu
+      FichierVersTableau(gtabAlbums, Album, IDAlbum)
+      
+     type : 458752
+   -
+     name : AjouterAlbum
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1189000930746787339
+     type_code : 15
+     code : |1-
+      // Résumé : Ajoute un album
+      // Syntaxe :
+      //[ <Résultat> = ] AjouterAlbum (<sTitre> est chaîne)
+      //
+      // Paramètres :
+      //	sTitre (chaîne ANSI) : Libellé de l'album
+      // Valeur de retour :
+      // 	entier : Identifiant de l'album, -1 en cas d'erreur
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCÉDURE AjouterAlbum( sTitre est un chaîne)
+      
+      // Variables locales
+      nIDAlbum 	est un entier	= -1
+      
+      
+      // Initialisation de l'enregistrement
+      HRaz(Album)
+      
+      // On remplit les données
+      Album.titre 		= sTitre
+      album.DatePublication = DateDuJour()
+      //Album.Description 	= sDescription
+      
+      
+      //// Est-ce qu'une image est définie ?
+      //SI bufImage = "" alors
+      //	// On prend l'image par défaut
+      //	bufImage = RécupèreParamètre(csAdmin_Image_Defaut_Album,"images/Puce_Menu.png")
+      //FIN
+      
+      // Ajout en base
+      SI HAjoute(Album) = Faux ALORS
+      	AjouteErreur("Ajout de l'enregistrement impossible")
+      	RENVOYER nIDAlbum
+      FIN
+      
+      // On mémorise l'actualité créée
+      nIDAlbum = Album.IDAlbum
+      
+      // Mémorisation en base
+      SI Hmodifie(Album) = faux alors
+      	AjouteErreur("Modification de l'enregistrement impossible")
+      	RENVOYER nIDAlbum
+      FIN
+      
+      // Mise à jour 
+      ActualiserAlbums()
+      
+      // On renvoie l'identifiant de l'album
+      RENVOYER nIDAlbum
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER nIDAlbum
+     type : 458752
+   -
+     name : LireNbrePhotos
+     procedure_id : 1190368787638209549
+     type_code : 15
+     code : |1+
+      // Résumé : Récupère le nombre de photos dans l'album dont l'ID est passé en paramètre
+      // Syntaxe :
+      //[ <Résultat> = ] LireNbrePhotos (<nIDAlbum>)
+      //
+      // Paramètres :
+      //	nIDAlbum : Id de l'album dont on veut le nombre de photos
+      // Valeur de retour :
+      // 	entier : Nombre de photos dans cet album
+      
+      PROCEDURE LireNbrePhotos(nIDAlbum)
+      
+      nNbrePhotos est un entier
+      
+      
+      //Recherche le nombre de photos dans cet album
+      REQ_NbrePhotosAlbum.pIDAlbum = nIDAlbum
+      
+      HExécuteRequête(REQ_NbrePhotosAlbum)
+      
+      HLitPremier(REQ_NbrePhotosAlbum)
+      
+      nNbrePhotos = REQ_NbrePhotosAlbum.NbrePhotos
+      
+      renvoyer nNbrePhotos
+      
+      
+      
+      
+     type : 458752
+   -
+     name : LireTitreAlbum
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1190387114257770909
+     type_code : 15
+     code : |1+
+      // Résumé : Renvoie le titre de l'album dont l'ID est passé en paramètre
+      // Syntaxe :
+      //[ <Résultat> = ] LireTitreAlbum (<nIDAlbumRecherché>)
+      //
+      // Paramètres :
+      //	nIDAlbumRecherché : ID de l'album à rechercher
+      // Valeur de retour :
+      // 	Type indéterminé :  
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE LireTitreAlbum(nIDAlbumRecherché)
+      
+      sTitre est une chaîne
+      
+      // Recherche en base
+      HLitRecherchepremier(Album,IDAlbum,nIDAlbumRecherché)
+      
+      SI HTrouve(Album) = Faux ALORS
+      	AjouteErreur("Album non trouvé")
+      	RENVOYER Faux
+      FIN
+      
+      sTitre = Album.Titre
+      
+      renvoyer sTitre 
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER ""
+     type : 458752
+   -
+     name : SupprimerPhotosAlbum
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1190877406285287386
+     type_code : 15
+     code : |1+
+      // Résumé : Supprime toutes les photos d'un album
+      // Syntaxe :
+      //[ <Résultat> = ] SupprimerPhotosAlbum (<nIDAlbum>)
+      //
+      // Paramètres :
+      //	nIDAlbum : ID de l'album dont il faut supprimer les photos
+      // Valeur de retour :
+      // 	booléen : Vrai si tout s'est bien passé, Faux sinon
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE SupprimerPhotosAlbum(nIDAlbum)
+      
+      bRéussi est un booleen = Vrai
+      nPos est un entier
+      
+      HLitRecherchePremier(Photo,IDAlbum, nIDAlbum)
+      tantque HTrouve(Photo)
+      	
+      	nPos = HSauvePosition(Photo)
+      	
+      	// Suppression en base
+      	SI SupprimerPhoto( photo.IDPhoto ) = Faux ALORS
+      		AjouteErreur("Certaines photos n'ont pas pu être supprimées")
+      		bRéussi = Faux
+      	FIN
+      	
+      	HRetourPosition(nPos)
+      	HLitSuivant(Photo)
+      FIN
+      
+      
+      renvoyer bRéussi
+      
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER faux
+     type : 458752
+   -
+     name : RetirerPhotosAlbum
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1201985506050710060
+     type_code : 15
+     code : |1+
+      // Résumé : Retirer toutes les photos d'un album de cet album
+      // Syntaxe :
+      //[ <Résultat> = ] RetirerPhotosAlbum (<nIDAlbum>)
+      //
+      // Paramètres :
+      //	nIDAlbum : ID de l'album dont on veut retirer toutes les photos
+      // Valeur de retour :
+      // 	Type indéterminé : Vrai si tout s'est bien passé
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE RetirerPhotosAlbum(nIDAlbum)
+      
+      bRéussi est un booleen = Vrai
+      nPos est un entier
+      
+      
+      pour tout photo AVEC IDAlbum = nIDAlbum
+      	
+      	nPos = HSauvePosition(Photo)
+      	
+      	// Modification en base
+      	SI RetirerPhotoDeSonAlbum( Photo.IDPhoto ) = Faux ALORS
+      		AjouteErreur("Certaines photos n'ont pas pu être retirées de l'album")
+      		bRéussi = Faux
+      	FIN
+      	
+      	HRetourPosition(nPos)
+      fin
+      
+      renvoyer bRéussi
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER nIDAlbum
+      
+     type : 458752
+   -
+     name : LireNbreAlbums
+     procedure_id : 1203796328587295766
+     type_code : 15
+     code : |1+
+      // Résumé : Renvoie le nombre d'albums 
+      // Syntaxe :
+      //[ <Résultat> = ] LireNbreAlbums ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	entier : 
+      
+      PROCEDURE LireNbreAlbums()
+      
+      nNbreAlbums est un entier 
+      
+      HExécuteRequête(REQ_NbreAlbums)
+      
+      HLitPremier(REQ_NbreAlbums)
+      
+      nNbreAlbums = REQ_NbreAlbums.NbreAlbums
+      
+      renvoyer nNbreAlbums 
+      
+     type : 458752
+   -
+     name : ListeAlbums
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 2305203346969573720
+     type_code : 15
+     code : |1-
+      // Résumé : Liste les albums d'un album parent
+      // Syntaxe :
+      //[ <Résultat> = ] ListeAlbums ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	tableau : tableau de ST_Album
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      //	nIDAlbumParent (entier) : Identifiant de l'album parent
+      PROCÉDURE ListeAlbums( )
+      
+      // Variables locales
+      tabAlbums 	est un tableau de ST_Album
+      stAlbumErr	est un ST_Album
+      
+      // Configuration en cas d'erreur
+      stAlbumErr.IDAlbum = -1
+      
+      
+      // Pour tous les albums 
+      POUR TOUT Album 
+      	// On crée la structure
+      	stAlbum	est un ST_Album
+      	FichierVersMémoire(stAlbum, album)
+      	
+      	stAlbum.NbrePhotos = LireNbrePhotos(Album.IDAlbum)
+      	
+      	
+      	// On l'ajoute au tableau des albums
+      	TableauAjoute(tabAlbums, stAlbum)	
+      FIN
+      
+      // On renvoie le tableau
+      renvoyer tabAlbums
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Exception détectée",ExceptionInfo())
+      	TableauAjoute(tabAlbums, stAlbumErr)	
+      	RENVOYER tabAlbums
+     type : 458752
+   -
+     name : ModifierTitreAlbum
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1159632893637727527
+     type_code : 15
+     code : |1+
+      // Résumé : Modifie un album de photos
+      // Syntaxe :
+      //[ <Résultat> = ] ModifierTitreAlbum (<nIDAlbumRecherché> est entier, <sTitre> est chaîne)
+      //
+      // Paramètres :
+      //	nIDAlbumRecherché (entier) : Identifiant de l'album à modifier
+      //	sTitre (chaîne ANSI) : Nouveau titre de l'album
+      // Valeur de retour :
+      // 	booléen : Vrai si l'album a été mis à jour, Faux sinon
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      PROCÉDURE ModifierTitreAlbum( LOCAL nIDAlbumRecherché est un entier , LOCAL sTitre est un chaîne)
+      // Variables locales
+      
+      // Recherche en base
+      HLitRecherchePremier(Album,IDAlbum,nIDAlbumRecherché)
+      SI HTrouve(Album) = Faux ALORS
+      	AjouteErreur("Album non trouvé")
+      	RENVOYER Faux
+      FIN
+      
+      // On remplit les données
+      Album.titre 			= sTitre
+      
+      
+      
+      // Modification en base
+      SI HModifie(Album) = Faux ALORS
+      	AjouteErreur("Modification de l'album impossible")
+      	RENVOYER Faux
+      FIN
+      
+      // Mise à jour
+      ActualiserAlbums()
+      
+      
+      // Par défaut, la modification se déroule correctement
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER Faux
+      
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_SansNom1
+resources :
+ string_res :
+  identifier : 0x107456f600373ddf
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      fr-FR : Album non trouvé
+     index : 1
+   -
+     text :
+      fr-FR : Suppression de la photo impossible
+     index : 2
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

@@ -1,0 +1,132 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : COL_GestionCommentaires
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x107e8c17098fad67
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     code : |1+
+      // Cette structure correspond à la structure décrite dans l'analyse pour le fichier Commentaire
+      // Cette structure est utilisée pour la gestion du backoffice
+      ST_Commentaire est une structure
+      	IDCommentaire 		est un entier
+      	dhDateHeure 		est un dateHeure
+      	sTexte		 		est une chaîne
+      	bModéré				est un booleen
+      	IDPhoto				est un entier
+      	IDCompte 			est un entier
+      FIN
+      
+      GLOBAL
+      gtabCommentaires est un tableau de ST_Commentaire
+     type : 720896
+  procedures :
+   -
+     name : SupprimerCommentaire
+     internal_properties : CAAAAAgAAACeBJPTM86S4IgUGGZvjjV8SNsMWArA4A4si5OPgPEcplNL13P61L+rS28SMpw8CN4O2jFcupYgLBrhkOOe94/cq2UNvOcdX2K0kODg2QbKq3o=
+     procedure_id : 1188541450965084961
+     type_code : 15
+     code : |1+
+      // Résumé : Supprimer le commentaire spécifié
+      // Syntaxe :
+      //[ <Résultat> = ] SupprimerCommentaire (<nIDCommentaireRecherché> est entier)
+      //
+      // Paramètres :
+      //	nIDCommentaireRecherché (entier) : Identifiant du commentaire recherché
+      // Valeur de retour :
+      // 	booléen : Vrai si l'opération s'est correctement déroulée, Faux sinon
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCÉDURE SupprimerCommentaire( nIDCommentaireRecherché est un entier )
+      
+      // Variables locales
+      nIndiceCommentaire est un entier
+      
+      
+      // Recherche de l'avis en base
+      HLitRecherchePremier(commentaire,IDCommentaire,nIDCommentaireRecherché)
+      SI Htrouve(Commentaire) = Faux alors
+      	AjouteErreur("Commentaire non trouvé en base")
+      	RENVOYER Faux
+      FIN
+      
+      // Suppression en base
+      Si HSupprime(Commentaire) = Faux alors
+      	AjouteErreur("Suppression du commentaire impossible")
+      	RENVOYER Faux
+      FIN
+      
+      // On recherche dans le tableau des commentaires
+      nIndiceCommentaire = TableauCherche(gtabCommentaires,tcLinéairePremier,"IDCommentaire",nIDCommentaireRecherché)
+      SI nIndiceCommentaire > 0 ALORS
+      	// Suppression 
+      	TableauSupprime(gtabCommentaires,nIndiceCommentaire)
+      FIN
+      
+      // Par défaut, la suppression se déroule correctement
+      RENVOYER Vrai
+      
+      CAS EXCEPTION:
+      	AjouteErreur("Exception détectée",ExceptionInfo())
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : AjouterCommentaire
+     internal_properties : CAAAAAgAAACeBJPTM86S4IgUGGZvjjV8SNsMWArA4A4si5OPgPEcplNL13P61L+rS28SMpw8CN4O2jFcupYgLBrhkOOe94/cq2UNvOcdX2K0kODg2QbKq3o=
+     procedure_id : 1188979670649921482
+     type_code : 15
+     code : |1-
+      // Résumé : Ajouter un commentaire dans la base de données
+      // Syntaxe :
+      //[ <Résultat> = ] AjouterCommentaire (<nIDPhoto>, <sCompte>, <sTexte>)
+      //
+      // Paramètres :
+      //	nIDPhoto : ID de la photo à laquelle il faut rattacher le commentaire
+      //	sCompte : ID du compte utilisateur ayant laissé ce commentaire
+      //	sTexte : Le commentaire
+      // Valeur de retour :
+      // 	Type indéterminé : 
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      
+      PROCEDURE AjouterCommentaire(nIDPhoto, sCompte, sTexte)
+      
+      Commentaire.DateHeure = DateDuJour() + Maintenant()
+      Commentaire.Login = sCompte
+      Commentaire.IDPhoto = nIDPhoto
+      Commentaire.Texte = sTexte
+      
+      // Ajout en base
+      SI HAjoute(Commentaire) = Faux ALORS
+      	AjouteErreur("Impossible d'ajouter le commentaire")
+      	RENVOYER -1
+      FIN
+      
+      RENVOYER commentaire.IDCommentaire
+      
+      CAS EXCEPTION:
+      AjouteErreur("Exception détectée",ExceptionInfo())
+      RENVOYER -1
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_SansNom1
+resources :
+ string_res :
+  identifier : 0x1fbe19c40a57cd7f
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ
